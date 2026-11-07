@@ -6,7 +6,7 @@ Deliver the marketing frontend as a sequence of vertical slices: first establish
 
 ## Phases
 
-- [ ] **Phase 1: Executive Proposition & Trust** - Make the promise, operating model, and assurances clear at first glance.
+- [x] **Phase 1: Executive Proposition & Trust** - Make the promise, operating model, and assurances clear at first glance.
 - [ ] **Phase 2: Industry Outcomes, ROI & Pricing** - Let visitors explore relevant business impact and payback.
 - [ ] **Phase 3: Conversion & Experience Readiness** - Turn understanding into enquiries through accessible, responsive conversion flows.
 
@@ -60,6 +60,6 @@ Phases execute in numeric order: 1 → 2 → 3
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Executive Proposition & Trust | 0/TBD | Not started | - |
+| 1. Executive Proposition & Trust | 1/1 | Complete | 2026-11-08 |
 | 2. Industry Outcomes, ROI & Pricing | 0/TBD | Not started | - |
 | 3. Conversion & Experience Readiness | 0/TBD | Not started | - |

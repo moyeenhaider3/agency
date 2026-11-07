@@ -7,8 +7,8 @@
 
 ### Proposition and Navigation
 
-- [ ] **PROP-01**: Visitor can identify AgenticeEra Solution, its New Delhi/global service footprint, and its outcome-led promise in the first viewport.
-- [ ] **PROP-02**: Visitor can navigate to industry results, the operating model, ROI calculator, pricing, and FAQs from the primary navigation.
+- [x] **PROP-01**: Visitor can identify AgenticeEra Solution, its New Delhi/global service footprint, and its outcome-led promise in the first viewport.
+- [x] **PROP-02**: Visitor can navigate to industry results, the operating model, ROI calculator, pricing, and FAQs from the primary navigation.
 - [ ] **PROP-03**: Visitor can switch between India/INR and Global/USD views and see the relevant pricing and financial figures update consistently.
 
 ### Conversion
@@ -21,7 +21,7 @@
 
 - [ ] **IND-01**: Visitor can switch among five industry playbooks: real estate, healthcare, D2C/e-commerce, CA/manufacturing/wholesale, and global B2B SaaS/staffing/consulting.
 - [ ] **IND-02**: Each industry playbook displays its costly problem, day-one operational change, and supplied financial impact.
-- [ ] **IND-03**: Visitor can compare manual operating costs with the 24/7 digital-team model using the supplied 20-second, 90/10, and payback proof points.
+- [x] **IND-03**: Visitor can compare manual operating costs with the 24/7 digital-team model using the supplied 20-second, 90/10, and payback proof points.
 
 ### ROI and Pricing
 
@@ -32,17 +32,17 @@
 
 ### Trust and Explanation
 
-- [ ] **TRUST-01**: Visitor can understand the three-step workflow audit, watch-mode pilot, and one-click human-control model.
-- [ ] **TRUST-02**: Visitor can find plain-language assurances covering data ownership, privacy, India data residency, opt-out handling, and critical-response reliability.
+- [x] **TRUST-01**: Visitor can understand the three-step workflow audit, watch-mode pilot, and one-click human-control model.
+- [x] **TRUST-02**: Visitor can find plain-language assurances covering data ownership, privacy, India data residency, opt-out handling, and critical-response reliability.
 - [ ] **TRUST-03**: Visitor can expand accessible FAQ items addressing voice quality, existing software compatibility, risky requests, and the pilot guarantee.
-- [ ] **TRUST-04**: Visitor can distinguish illustrative examples and estimates from confirmed guarantees or independently verified results.
+- [x] **TRUST-04**: Visitor can distinguish illustrative examples and estimates from confirmed guarantees or independently verified results.
 
 ### Quality
 
 - [ ] **QUAL-01**: All primary sections and interactions work responsively on mobile, tablet, and desktop.
 - [ ] **QUAL-02**: Keyboard users can operate navigation, tabs, sliders, modal, FAQ, and forms with visible focus and appropriate labels.
-- [ ] **QUAL-03**: Visitor-facing copy avoids the banned technical jargon and consistently prioritizes business outcomes.
-- [ ] **QUAL-04**: The page uses the specified alabaster/white, obsidian, emerald, and amber visual system with restrained motion and readable financial numerals.
+- [x] **QUAL-03**: Visitor-facing copy avoids the banned technical jargon and consistently prioritizes business outcomes.
+- [x] **QUAL-04**: The page uses the specified alabaster/white, obsidian, emerald, and amber visual system with restrained motion and readable financial numerals.
 
 ## v2 Requirements
 
@@ -71,27 +71,27 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| PROP-01 | Phase 1 | Pending |
-| PROP-02 | Phase 1 | Pending |
+| PROP-01 | Phase 1 | Complete |
+| PROP-02 | Phase 1 | Complete |
 | PROP-03 | Phase 2 | Pending |
 | CONV-01 | Phase 3 | Pending |
 | CONV-02 | Phase 3 | Pending |
 | CONV-03 | Phase 3 | Pending |
 | IND-01 | Phase 2 | Pending |
 | IND-02 | Phase 2 | Pending |
-| IND-03 | Phase 1 | Pending |
+| IND-03 | Phase 1 | Complete |
 | ROI-01 | Phase 2 | Pending |
 | ROI-02 | Phase 2 | Pending |
 | PRICE-01 | Phase 2 | Pending |
 | PRICE-02 | Phase 2 | Pending |
-| TRUST-01 | Phase 1 | Pending |
-| TRUST-02 | Phase 1 | Pending |
+| TRUST-01 | Phase 1 | Complete |
+| TRUST-02 | Phase 1 | Complete |
 | TRUST-03 | Phase 3 | Pending |
-| TRUST-04 | Phase 1 | Pending |
+| TRUST-04 | Phase 1 | Complete |
 | QUAL-01 | Phase 3 | Pending |
 | QUAL-02 | Phase 3 | Pending |
-| QUAL-03 | Phase 1 | Pending |
-| QUAL-04 | Phase 1 | Pending |
+| QUAL-03 | Phase 1 | Complete |
+| QUAL-04 | Phase 1 | Complete |
 
 **Coverage:**
 - v1 requirements: 21 total
