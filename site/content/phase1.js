@@ -37,6 +37,13 @@ window.PHASE1_CONTENT = {
     new: {
       label: "24/7 digital team",
       points: ["Routine requests are handled as they arrive", "Every handoff has a visible owner and next step", "You keep one-click control of high-stakes decisions"]
+    },
+    costComparison: {
+      label: "Illustrative B2B sales example",
+      manual: { value: "$6,000/mo", text: "manual junior-salesperson cost" },
+      digital: { value: "$2,450/mo", text: "always-on growth-engine cost" },
+      recovered: { value: "$11,550/mo", text: "illustrative monthly overhead recovered" },
+      note: "Supplied estimate for discussion, not an independently verified result or financial advice."
     }
   },
   workflow: [

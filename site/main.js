@@ -21,6 +21,8 @@
   setText("[data-new-label]", content.comparison.new.label);
   list("[data-old-points]", content.comparison.old.points, item => `<li>${item}</li>`);
   list("[data-new-points]", content.comparison.new.points, item => `<li>${item}</li>`);
+  const cost = content.comparison.costComparison;
+  list("[data-cost-comparison]", [cost], item => `<div class="cost-heading"><p class="card-label">${item.label}</p><p>${item.note}</p></div><div class="cost-items"><div><strong>${item.manual.value}</strong><span>${item.manual.text}</span></div><div><strong>${item.digital.value}</strong><span>${item.digital.text}</span></div><div><strong>${item.recovered.value}</strong><span>${item.recovered.text}</span></div></div>`);
   list("[data-metrics-secondary]", content.metrics, item => `<div><strong>${item.value}</strong><span>${item.label}</span></div>`);
   list("[data-workflow]", content.workflow, item => `<article class="workflow-step"><span class="step-number">${item.number}</span><h3>${item.title}</h3><p>${item.text}</p></article>`);
   list("[data-assurances]", content.assurances, item => `<article class="assurance"><span class="assurance-icon" aria-hidden="true">✓</span><div><h3>${item.title}</h3><p>${item.text}</p></div></article>`);
