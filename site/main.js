@@ -54,7 +54,12 @@
   const sectionLinks = $$("nav a[href^='#']");
   const observer = new IntersectionObserver(entries => entries.forEach(entry => {
     if (!entry.isIntersecting) return;
-    sectionLinks.forEach(link => link.classList.toggle("is-active", link.getAttribute("href") === `#${entry.target.id}`));
+    sectionLinks.forEach(link => {
+      const active = link.getAttribute("href") === `#${entry.target.id}`;
+      link.classList.toggle("is-active", active);
+      if (active) link.setAttribute("aria-current", "location");
+      else link.removeAttribute("aria-current");
+    });
   }), { rootMargin: "-25% 0px -65% 0px" });
   $$("[data-section], #top").forEach(section => observer.observe(section));
 
