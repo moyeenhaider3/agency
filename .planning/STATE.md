@@ -30,15 +30,15 @@ Progress: ███░░░░░░░ 33%
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 0
-- Average duration: —
-- Total execution time: 0 hours
+- Total plans completed: 1
+- Average duration: under 1 hour
+- Total execution time: under 1 hour
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| — | — | — | — |
+| 1. Executive Proposition & Trust | 1 | 1 | under 1 hour |
 
 **Recent Trend:**
 - Last 5 plans: —
@@ -51,6 +51,7 @@ Progress: ███░░░░░░░ 33%
 - Three coarse vertical slices follow the user journey: understand, quantify, convert.
 - Production integrations, accounts, dashboards, and real outbound calling remain out of scope for v1.
 - Phase 1 uses a dependency-free static site with centralized proof-point content and stable anchors for later phases.
+- Phase 1 requirements are evidenced by the static page and direct-server verification; visual browser review remains for UAT.
 
 ### Pending Todos
 
