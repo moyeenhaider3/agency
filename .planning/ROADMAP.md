@@ -37,7 +37,9 @@ Plans:
   3. Visitor can adjust an industry-relevant volume and current input, then see estimated savings or recovered revenue, eliminated hours, and payback in the selected currency.
   4. Visitor can compare Starter, Growth Department Fleet, and Complete Digital Operations Suite plans with setup, recurring price, deliverables, value, and payback.
   5. Visitor can understand the zero-markup usage promise and 14-day founding-partner pilot/guarantee without hidden pricing language.
-**Plans**: TBD
+**Plans**: 1 plan
+Plans:
+- [ ] 02-01-PLAN.md — Build five industry outcomes, transparent ROI calculator, currency switcher, and pricing comparison
 **UI hint**: yes
 
 ### Phase 3: Conversion & Experience Readiness
