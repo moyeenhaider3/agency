@@ -71,32 +71,32 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| PROP-01 | Pending roadmap | Pending |
-| PROP-02 | Pending roadmap | Pending |
-| PROP-03 | Pending roadmap | Pending |
-| CONV-01 | Pending roadmap | Pending |
-| CONV-02 | Pending roadmap | Pending |
-| CONV-03 | Pending roadmap | Pending |
-| IND-01 | Pending roadmap | Pending |
-| IND-02 | Pending roadmap | Pending |
-| IND-03 | Pending roadmap | Pending |
-| ROI-01 | Pending roadmap | Pending |
-| ROI-02 | Pending roadmap | Pending |
-| PRICE-01 | Pending roadmap | Pending |
-| PRICE-02 | Pending roadmap | Pending |
-| TRUST-01 | Pending roadmap | Pending |
-| TRUST-02 | Pending roadmap | Pending |
-| TRUST-03 | Pending roadmap | Pending |
-| TRUST-04 | Pending roadmap | Pending |
-| QUAL-01 | Pending roadmap | Pending |
-| QUAL-02 | Pending roadmap | Pending |
-| QUAL-03 | Pending roadmap | Pending |
-| QUAL-04 | Pending roadmap | Pending |
+| PROP-01 | Phase 1 | Pending |
+| PROP-02 | Phase 1 | Pending |
+| PROP-03 | Phase 2 | Pending |
+| CONV-01 | Phase 3 | Pending |
+| CONV-02 | Phase 3 | Pending |
+| CONV-03 | Phase 3 | Pending |
+| IND-01 | Phase 2 | Pending |
+| IND-02 | Phase 2 | Pending |
+| IND-03 | Phase 1 | Pending |
+| ROI-01 | Phase 2 | Pending |
+| ROI-02 | Phase 2 | Pending |
+| PRICE-01 | Phase 2 | Pending |
+| PRICE-02 | Phase 2 | Pending |
+| TRUST-01 | Phase 1 | Pending |
+| TRUST-02 | Phase 1 | Pending |
+| TRUST-03 | Phase 3 | Pending |
+| TRUST-04 | Phase 1 | Pending |
+| QUAL-01 | Phase 3 | Pending |
+| QUAL-02 | Phase 3 | Pending |
+| QUAL-03 | Phase 1 | Pending |
+| QUAL-04 | Phase 1 | Pending |
 
 **Coverage:**
 - v1 requirements: 21 total
-- Mapped to phases: 0
-- Unmapped: 21 (roadmap creation pending)
+- Mapped to phases: 21
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-11-08*
