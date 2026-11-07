@@ -22,7 +22,9 @@ Deliver the marketing frontend as a sequence of vertical slices: first establish
   3. Visitor can compare manual operations with the 24/7 digital-team model using the supplied 20-second, 90/10, and payback proof points.
   4. Visitor can understand the audit, watch-mode pilot, human-control model, data/privacy assurances, and which examples are illustrative.
   5. Visitor encounters plain business language and the specified visual system without unsupported claims or technical jargon.
-**Plans**: TBD
+**Plans**: 1 plan
+Plans:
+- [ ] 01-01-PLAN.md — Build the executive proposition, operating model, trust assurances, and visual language
 **UI hint**: yes
 
 ### Phase 2: Industry Outcomes, ROI & Pricing
