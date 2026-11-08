@@ -19,22 +19,13 @@ Show business owners exactly how much revenue, cash, and staff time they can rec
 
 ### Validated
 
-(None yet — ship to validate)
+- The v1.0 marketing frontend delivers the complete understand → quantify → convert journey.
+- Visitors can explore five industry cases, calculate cautious payback views, compare pricing, and use accessible local-only enquiry flows.
+- The dependency-free implementation passed automated checks and browser UAT.
 
 ### Active
 
-- [ ] Visitors understand the outcome-led AgenticeEra Solution proposition within the hero section.
-- [ ] Visitors can switch between India/INR and Global/USD views without losing context.
-- [ ] Visitors can explore tailored problems, first-day changes, and financial impact for all five target industries.
-- [ ] Visitors can estimate savings, recovered revenue, eliminated hours, and payback with an interactive calculator.
-- [ ] Visitors can open a 20-second live-call demo modal and submit a demo request.
-- [ ] Visitors can compare the old manual operating model with the 24/7 digital-team model.
-- [ ] Visitors can understand the three-step audit, pilot, and controlled go-live process.
-- [ ] Visitors can compare transparent starter, growth, and complete-suite pricing.
-- [ ] Visitors can understand privacy, data residency, opt-out, and reliability assurances in plain business language.
-- [ ] Visitors can resolve the main objections through an accessible FAQ.
-- [ ] Visitors can submit a final live-demo request or 15-minute revenue-audit enquiry.
-- [ ] The experience is responsive, accessible, fast, and visually consistent with the executive-clarity design direction.
+No active v1 requirements. Start the next cycle with `$gsd-new-milestone`.
 
 ### Out of Scope
 
@@ -61,6 +52,14 @@ Show business owners exactly how much revenue, cash, and staff time they can rec
 - **Responsive UX**: The main conversion path must work on mobile and desktop, including sticky conversion actions and touch-friendly controls.
 - **Privacy**: Forms must minimize collected information and clearly communicate privacy/DPDP-oriented assurances.
 - **Tracking**: Planning documents are tracked in Git as requested; implementation should preserve reproducible, reviewable changes.
+
+## Current State
+
+v1.0 shipped on 2026-11-08. The public marketing frontend is complete; production calling, lead delivery, integrations, dashboards, and authenticated operations remain deferred to a future milestone.
+
+## Next Milestone Goals
+
+Define the next validated customer-facing or production-integration slice through `$gsd-new-milestone`.
 
 ## Key Decisions
 
