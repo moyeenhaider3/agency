@@ -8,7 +8,7 @@ Deliver the marketing frontend as a sequence of vertical slices: first establish
 
 - [x] **Phase 1: Executive Proposition & Trust** - Make the promise, operating model, and assurances clear at first glance.
 - [x] **Phase 2: Industry Outcomes, ROI & Pricing** - Let visitors explore relevant business impact and payback.
-- [ ] **Phase 3: Conversion & Experience Readiness** - Turn understanding into enquiries through accessible, responsive conversion flows.
+- [x] **Phase 3: Conversion & Experience Readiness** - Turn understanding into enquiries through accessible, responsive conversion flows.
 
 ## Phase Details
 
