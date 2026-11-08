@@ -7,7 +7,7 @@ Deliver the marketing frontend as a sequence of vertical slices: first establish
 ## Phases
 
 - [x] **Phase 1: Executive Proposition & Trust** - Make the promise, operating model, and assurances clear at first glance.
-- [ ] **Phase 2: Industry Outcomes, ROI & Pricing** - Let visitors explore relevant business impact and payback.
+- [x] **Phase 2: Industry Outcomes, ROI & Pricing** - Let visitors explore relevant business impact and payback.
 - [ ] **Phase 3: Conversion & Experience Readiness** - Turn understanding into enquiries through accessible, responsive conversion flows.
 
 ## Phase Details
@@ -37,9 +37,9 @@ Plans:
   3. Visitor can adjust an industry-relevant volume and current input, then see estimated savings or recovered revenue, eliminated hours, and payback in the selected currency.
   4. Visitor can compare Starter, Growth Department Fleet, and Complete Digital Operations Suite plans with setup, recurring price, deliverables, value, and payback.
   5. Visitor can understand the zero-markup usage promise and 14-day founding-partner pilot/guarantee without hidden pricing language.
-**Plans**: 1 plan
+**Plans**: 1/1 plans executed
 Plans:
-- [ ] 02-01-PLAN.md — Build five industry outcomes, transparent ROI calculator, currency switcher, and pricing comparison
+- [x] 02-01-PLAN.md — Build five industry outcomes, transparent ROI calculator, currency switcher, and pricing comparison
 **UI hint**: yes
 
 ### Phase 3: Conversion & Experience Readiness
@@ -63,5 +63,5 @@ Phases execute in numeric order: 1 → 2 → 3
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Executive Proposition & Trust | 1/1 | Complete | 2026-11-08 |
-| 2. Industry Outcomes, ROI & Pricing | 0/TBD | Not started | - |
+| 2. Industry Outcomes, ROI & Pricing | 1/1 | Complete | 2026-11-08 |
 | 3. Conversion & Experience Readiness | 0/TBD | Not started | - |

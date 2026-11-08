@@ -9,7 +9,7 @@
 
 - [x] **PROP-01**: Visitor can identify AgenticeEra Solution, its New Delhi/global service footprint, and its outcome-led promise in the first viewport.
 - [x] **PROP-02**: Visitor can navigate to industry results, the operating model, ROI calculator, pricing, and FAQs from the primary navigation.
-- [ ] **PROP-03**: Visitor can switch between India/INR and Global/USD views and see the relevant pricing and financial figures update consistently.
+- [x] **PROP-03**: Visitor can switch between India/INR and Global/USD views and see the relevant pricing and financial figures update consistently.
 
 ### Conversion
 
@@ -19,16 +19,16 @@
 
 ### Industry Outcomes
 
-- [ ] **IND-01**: Visitor can switch among five industry playbooks: real estate, healthcare, D2C/e-commerce, CA/manufacturing/wholesale, and global B2B SaaS/staffing/consulting.
-- [ ] **IND-02**: Each industry playbook displays its costly problem, day-one operational change, and supplied financial impact.
+- [x] **IND-01**: Visitor can switch among five industry playbooks: real estate, healthcare, D2C/e-commerce, CA/manufacturing/wholesale, and global B2B SaaS/staffing/consulting.
+- [x] **IND-02**: Each industry playbook displays its costly problem, day-one operational change, and supplied financial impact.
 - [x] **IND-03**: Visitor can compare manual operating costs with the 24/7 digital-team model using the supplied 20-second, 90/10, and payback proof points.
 
 ### ROI and Pricing
 
-- [ ] **ROI-01**: Visitor can select an industry and adjust a relevant monthly volume and current staff/ad-spend/deal-value input.
-- [ ] **ROI-02**: Calculator displays estimated monthly savings or recovered revenue, eliminated manual hours, and estimated payback period in the selected currency.
-- [ ] **PRICE-01**: Visitor can compare Starter, Growth Department Fleet, and Complete Digital Operations Suite plans with setup fee, recurring price, deliverables, expected value, and payback.
-- [ ] **PRICE-02**: Visitor can understand the zero-markup usage promise and the 14-day founding-partner pilot/guarantee without hidden pricing language.
+- [x] **ROI-01**: Visitor can select an industry and adjust a relevant monthly volume and current staff/ad-spend/deal-value input.
+- [x] **ROI-02**: Calculator displays estimated monthly savings or recovered revenue, eliminated manual hours, and estimated payback period in the selected currency.
+- [x] **PRICE-01**: Visitor can compare Starter, Growth Department Fleet, and Complete Digital Operations Suite plans with setup fee, recurring price, deliverables, expected value, and payback.
+- [x] **PRICE-02**: Visitor can understand the zero-markup usage promise and the 14-day founding-partner pilot/guarantee without hidden pricing language.
 
 ### Trust and Explanation
 
@@ -73,17 +73,17 @@
 |-------------|-------|--------|
 | PROP-01 | Phase 1 | Complete |
 | PROP-02 | Phase 1 | Complete |
-| PROP-03 | Phase 2 | Pending |
+| PROP-03 | Phase 2 | Complete |
 | CONV-01 | Phase 3 | Pending |
 | CONV-02 | Phase 3 | Pending |
 | CONV-03 | Phase 3 | Pending |
-| IND-01 | Phase 2 | Pending |
-| IND-02 | Phase 2 | Pending |
+| IND-01 | Phase 2 | Complete |
+| IND-02 | Phase 2 | Complete |
 | IND-03 | Phase 1 | Complete |
-| ROI-01 | Phase 2 | Pending |
-| ROI-02 | Phase 2 | Pending |
-| PRICE-01 | Phase 2 | Pending |
-| PRICE-02 | Phase 2 | Pending |
+| ROI-01 | Phase 2 | Complete |
+| ROI-02 | Phase 2 | Complete |
+| PRICE-01 | Phase 2 | Complete |
+| PRICE-02 | Phase 2 | Complete |
 | TRUST-01 | Phase 1 | Complete |
 | TRUST-02 | Phase 1 | Complete |
 | TRUST-03 | Phase 3 | Pending |
