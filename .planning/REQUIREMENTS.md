@@ -95,27 +95,27 @@ The following are intentionally not v1.1 deliverables:
 
 | Requirement | Phase | Status |
 |---|---|---|
-| HERO-01 | TBD | Pending |
-| HERO-02 | TBD | Pending |
-| HERO-03 | TBD | Pending |
-| FORM-01 | TBD | Pending |
-| FORM-02 | TBD | Pending |
-| FORM-03 | TBD | Pending |
-| FORM-04 | TBD | Pending |
-| ANALYTICS-01 | TBD | Pending |
-| ANALYTICS-02 | TBD | Pending |
-| ANALYTICS-03 | TBD | Pending |
-| ANALYTICS-04 | TBD | Pending |
-| EXPERIMENT-01 | TBD | Pending |
-| EXPERIMENT-02 | TBD | Pending |
-| EXPERIMENT-03 | TBD | Pending |
-| EXPERIMENT-04 | TBD | Pending |
-| PERF-01 | TBD | Pending |
-| PERF-02 | TBD | Pending |
-| PERF-03 | TBD | Pending |
-| SEO-01 | TBD | Pending |
-| SEO-02 | TBD | Pending |
-| SEO-03 | TBD | Pending |
-| SEO-04 | TBD | Pending |
+| HERO-01 | Phase 4 | Pending |
+| HERO-02 | Phase 4 | Pending |
+| HERO-03 | Phase 4 | Pending |
+| FORM-01 | Phase 5 | Pending |
+| FORM-02 | Phase 5 | Pending |
+| FORM-03 | Phase 5 | Pending |
+| FORM-04 | Phase 5 | Pending |
+| ANALYTICS-01 | Phase 5 | Pending |
+| ANALYTICS-02 | Phase 5 | Pending |
+| ANALYTICS-03 | Phase 5 | Pending |
+| ANALYTICS-04 | Phase 5 | Pending |
+| EXPERIMENT-01 | Phase 4 | Pending |
+| EXPERIMENT-02 | Phase 4 | Pending |
+| EXPERIMENT-03 | Phase 4 | Pending |
+| EXPERIMENT-04 | Phase 4 | Pending |
+| PERF-01 | Phase 6 | Pending |
+| PERF-02 | Phase 6 | Pending |
+| PERF-03 | Phase 6 | Pending |
+| SEO-01 | Phase 7 | Pending |
+| SEO-02 | Phase 7 | Pending |
+| SEO-03 | Phase 7 | Pending |
+| SEO-04 | Phase 7 | Pending |
 
-**Coverage:** 22/22 v1.1 requirements defined. Roadmap phase assignment is pending.
+**Coverage:** 22/22 v1.1 requirements mapped exactly once across Phases 4-7.
