@@ -2,7 +2,8 @@
   "use strict";
   const phase1 = window.PHASE1_CONTENT;
   const content = window.PHASE2_CONTENT;
-  if (!phase1 || !content) return;
+  const phase3 = window.PHASE3_CONTENT;
+  if (!phase1 || !content || !phase3) return;
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
   const setText = (selector, value) => { const node = $(selector); if (node) node.textContent = value; };
@@ -12,7 +13,7 @@
 
   list("[data-nav-links]", phase1.nav, item => `<a href="${item.href}">${item.label}</a>`);
   setText("[data-hero-eyebrow]", phase1.eyebrow); setText("[data-hero-title]", phase1.hero.title); setText("[data-hero-intro]", phase1.hero.intro);
-  setText("[data-hero-promise]", phase1.hero.promise); setText("[data-primary-action]", phase1.hero.primaryAction); setText("[data-secondary-action]", phase1.hero.secondaryAction);
+  setText("[data-hero-promise]", phase1.hero.promise); setText("[data-primary-action]", phase3.actions.demo);
   list("[data-metrics]", phase1.metrics, item => `<div class="metric"><strong>${item.value}</strong><span>${item.label}</span><small>${item.note}</small></div>`);
   setText("[data-comparison-title]", phase1.comparison.title); setText("[data-comparison-intro]", phase1.comparison.intro); setText("[data-old-label]", phase1.comparison.old.label); setText("[data-new-label]", phase1.comparison.new.label);
   list("[data-old-points]", phase1.comparison.old.points, item => `<li>${item}</li>`); list("[data-new-points]", phase1.comparison.new.points, item => `<li>${item}</li>`);
@@ -60,6 +61,65 @@
   }
   function renderAll() { renderTabs(); renderPlaybook(); renderCurrency(); renderRoi(); renderPricing(); }
   renderAll();
+
+  function renderConversionCopy() {
+    const demo = phase3.demo, audit = phase3.audit;
+    setText("[data-secondary-action]", phase3.actions.audit); setText("[data-demo-title]", demo.title); setText("[data-demo-intro]", demo.intro); setText("[data-demo-privacy]", demo.privacy);
+    setText("[data-demo-name-label]", demo.labels.name); setText("[data-demo-industry-label]", demo.labels.industry); setText("[data-demo-phone-label]", demo.labels.phone); setText("[data-demo-submit]", demo.submit);
+    setText("[data-audit-title]", audit.title); setText("[data-audit-intro]", audit.intro); setText("[data-audit-privacy]", audit.privacy);
+    setText("[data-audit-name-label]", audit.labels.name); setText("[data-audit-company-label]", audit.labels.company); setText("[data-audit-phone-label]", audit.labels.phone); setText("[data-audit-bottleneck-label]", audit.labels.bottleneck); setText("[data-audit-submit]", audit.submit);
+    $$("[data-demo-industry]").forEach(select => { select.innerHTML = content.industries.map(item => `<option value="${item.id}">${item.name}</option>`).join(""); });
+    setText("[data-persistent-demo]", phase3.actions.demo); setText("[data-persistent-audit]", phase3.actions.audit);
+    setText("[data-faqs-kicker]", phase3.faq.kicker); setText("[data-faqs-title]", phase3.faq.title); setText("[data-faqs-text]", phase3.faq.intro);
+    list("[data-faq-list]", phase3.faq.items, (item, index) => `<article class="faq-item"><h3><button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-answer-${index}" data-faq-trigger>${item.question}<span aria-hidden="true">+</span></button></h3><div id="faq-answer-${index}" class="faq-answer" hidden><p>${item.answer}</p></div></article>`);
+  }
+  renderConversionCopy();
+
+  function validPhone(value) { return String(value || "").replace(/\D/g, "").length >= 7; }
+  function setStatus(selector, message, valid) {
+    const node = $(selector);
+    if (node) { node.textContent = message; node.classList.toggle("is-success", Boolean(valid)); node.classList.toggle("is-error", !valid); }
+  }
+  const demoDialog = $("[data-demo-dialog]");
+  let lastDemoTrigger = null;
+  function openDemo(event) {
+    lastDemoTrigger = event?.currentTarget || document.activeElement;
+    setStatus("[data-demo-status]", "", true);
+    if (typeof demoDialog.showModal === "function") demoDialog.showModal();
+    else demoDialog.setAttribute("open", "");
+    $("[data-demo-name]")?.focus();
+  }
+  function closeDemo() {
+    if (typeof demoDialog.close === "function") demoDialog.close();
+    else demoDialog.removeAttribute("open");
+    lastDemoTrigger?.focus?.();
+  }
+  $$("[data-open-demo]").forEach(button => button.addEventListener("click", openDemo));
+  $("[data-close-demo]")?.addEventListener("click", closeDemo);
+  demoDialog?.addEventListener("click", event => { if (event.target === demoDialog) closeDemo(); });
+  document.addEventListener("keydown", event => { if (event.key === "Escape" && demoDialog?.open) closeDemo(); });
+  $("[data-demo-form]")?.addEventListener("submit", event => {
+    event.preventDefault();
+    const name = $("[data-demo-name]"), industry = $("[data-demo-industry]"), phone = $("[data-demo-phone]");
+    if (!name.value.trim() || !industry.value || !phone.value.trim()) { setStatus("[data-demo-status]", phase3.demo.errors.required, false); return; }
+    if (!validPhone(phone.value)) { setStatus("[data-demo-status]", phase3.demo.errors.phone, false); phone.focus(); return; }
+    setStatus("[data-demo-status]", phase3.demo.success, true);
+  });
+  $("[data-audit-form]")?.addEventListener("submit", event => {
+    event.preventDefault();
+    const name = $("[data-audit-name]"), company = $("[data-audit-company]"), phone = $("[data-audit-phone]"), bottleneck = $("[data-audit-bottleneck]");
+    if (![name, company, phone, bottleneck].every(field => field?.value.trim())) { setStatus("[data-audit-status]", phase3.audit.errors.required, false); return; }
+    if (!validPhone(phone.value)) { setStatus("[data-audit-status]", phase3.audit.errors.phone, false); phone.focus(); return; }
+    setStatus("[data-audit-status]", phase3.audit.success, true);
+    event.currentTarget.reset();
+  });
+  $$("[data-faq-trigger]").forEach(button => button.addEventListener("click", () => {
+    const answer = document.getElementById(button.getAttribute("aria-controls"));
+    const expanded = button.getAttribute("aria-expanded") === "true";
+    button.setAttribute("aria-expanded", String(!expanded));
+    answer.hidden = expanded;
+    button.parentElement?.parentElement?.classList.toggle("is-open", !expanded);
+  }));
 
   $$("[data-currency]").forEach(button => button.addEventListener("click", () => { state.currency = button.dataset.currency; renderAll(); }));
   const roiInputSelectors = { volume: "[data-roi-volume]", currentInput: "[data-roi-input]", recoverableShare: "[data-roi-share]", manualHours: "[data-roi-hours]" };
