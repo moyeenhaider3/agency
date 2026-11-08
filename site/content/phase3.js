@@ -4,7 +4,8 @@ window.PHASE3_CONTENT = {
     intro: "Share only the details needed for this page-only demonstration. No call will be placed.",
     labels: { name: "Your name", industry: "Your industry", phone: "Phone number" },
     submit: "Start the simulated demo",
-    privacy: "We collect only these fields for the page flow. Nothing is saved or sent.",
+    privacy: "We collect only these fields to follow up on your request.",
+    consent: "I agree that AgenticeEra Solution may store these details to contact me about this enquiry.",
     success: "Simulated success: your demo request is ready for this page flow. No real call was placed.",
     errors: { required: "Please complete your name, industry, and phone number.", phone: "Enter a valid phone number with at least 7 digits." }
   },
@@ -13,7 +14,8 @@ window.PHASE3_CONTENT = {
     intro: "In 15 minutes, map the most expensive bottleneck and decide whether a small pilot is worth testing.",
     labels: { name: "Your name", company: "Company name", phone: "WhatsApp number", bottleneck: "Primary bottleneck" },
     submit: "Request the 15-minute audit",
-    privacy: "We collect only what is needed to understand the bottleneck. This enquiry stays on this page and is not sent anywhere.",
+    privacy: "We collect only what is needed to understand the bottleneck and follow up on this enquiry.",
+    consent: "I agree that AgenticeEra Solution may store these details to contact me about this enquiry.",
     success: "Simulated success: your audit enquiry is recorded for this page flow only. No external submission was made.",
     errors: { required: "Please complete your name, company, WhatsApp number, and bottleneck.", phone: "Enter a valid WhatsApp number with at least 7 digits." }
   },

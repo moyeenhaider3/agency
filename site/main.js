@@ -65,8 +65,12 @@
   function renderConversionCopy() {
     const demo = phase3.demo, audit = phase3.audit;
     setText("[data-secondary-action]", phase3.actions.audit); setText("[data-demo-title]", demo.title); setText("[data-demo-intro]", demo.intro); setText("[data-demo-privacy]", demo.privacy);
+    $$("[data-demo-privacy]").forEach(node => { node.textContent = demo.privacy; });
+    $$("[data-consent-label]").forEach(node => { node.textContent = demo.consent; });
     setText("[data-demo-name-label]", demo.labels.name); setText("[data-demo-industry-label]", demo.labels.industry); setText("[data-demo-phone-label]", demo.labels.phone); setText("[data-demo-submit]", demo.submit);
     setText("[data-audit-title]", audit.title); setText("[data-audit-intro]", audit.intro); setText("[data-audit-privacy]", audit.privacy);
+    const auditConsent = $("[data-audit-form] [data-consent-label]");
+    if (auditConsent) auditConsent.textContent = audit.consent;
     setText("[data-audit-name-label]", audit.labels.name); setText("[data-audit-company-label]", audit.labels.company); setText("[data-audit-phone-label]", audit.labels.phone); setText("[data-audit-bottleneck-label]", audit.labels.bottleneck); setText("[data-audit-submit]", audit.submit);
     $$("[data-demo-industry]").forEach(select => { select.innerHTML = content.industries.map(item => `<option value="${item.id}">${item.name}</option>`).join(""); });
     setText("[data-persistent-demo]", phase3.actions.demo); setText("[data-persistent-audit]", phase3.actions.audit);
@@ -76,6 +80,12 @@
   renderConversionCopy();
 
   function validPhone(value) { return String(value || "").replace(/\D/g, "").length >= 7; }
+  async function submitLead(payload) {
+    const endpoint = window.LEAD_CAPTURE_CONFIG?.endpoint;
+    if (!endpoint) return false;
+    await fetch(endpoint, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain;charset=UTF-8" }, body: JSON.stringify(payload) });
+    return true;
+  }
   function setStatus(selector, message, valid) {
     const node = $(selector);
     if (node) { node.textContent = message; node.classList.toggle("is-success", Boolean(valid)); node.classList.toggle("is-error", !valid); }
@@ -100,18 +110,21 @@
   document.addEventListener("keydown", event => { if (event.key === "Escape" && demoDialog?.open) closeDemo(); });
   $("[data-demo-form]")?.addEventListener("submit", event => {
     event.preventDefault();
-    const name = $("[data-demo-name]"), industry = $("[data-demo-industry]"), phone = $("[data-demo-phone]");
-    if (!name.value.trim() || !industry.value || !phone.value.trim()) { setStatus("[data-demo-status]", phase3.demo.errors.required, false); return; }
+    const name = $("[data-demo-name]"), industry = $("[data-demo-industry]"), phone = $("[data-demo-phone]"), consent = $("[data-demo-consent]");
+    if (!name.value.trim() || !industry.value || !phone.value.trim() || !consent.checked) { setStatus("[data-demo-status]", phase3.demo.errors.required, false); return; }
     if (!validPhone(phone.value)) { setStatus("[data-demo-status]", phase3.demo.errors.phone, false); phone.focus(); return; }
-    setStatus("[data-demo-status]", phase3.demo.success, true);
+    submitLead({ enquiryType: "live-demo", name: name.value, industry: industry.value, phone: phone.value, consent: consent.checked })
+      .then(sent => setStatus("[data-demo-status]", sent ? "Your demo request has been recorded. We will contact you shortly." : phase3.demo.success, true))
+      .catch(() => setStatus("[data-demo-status]", "We could not record your request. Please try again.", false));
   });
   $("[data-audit-form]")?.addEventListener("submit", event => {
     event.preventDefault();
-    const name = $("[data-audit-name]"), company = $("[data-audit-company]"), phone = $("[data-audit-phone]"), bottleneck = $("[data-audit-bottleneck]");
-    if (![name, company, phone, bottleneck].every(field => field?.value.trim())) { setStatus("[data-audit-status]", phase3.audit.errors.required, false); return; }
+    const name = $("[data-audit-name]"), company = $("[data-audit-company]"), phone = $("[data-audit-phone]"), bottleneck = $("[data-audit-bottleneck]"), consent = $("[data-audit-consent]");
+    if (![name, company, phone, bottleneck].every(field => field?.value.trim()) || !consent.checked) { setStatus("[data-audit-status]", phase3.audit.errors.required, false); return; }
     if (!validPhone(phone.value)) { setStatus("[data-audit-status]", phase3.audit.errors.phone, false); phone.focus(); return; }
-    setStatus("[data-audit-status]", phase3.audit.success, true);
-    event.currentTarget.reset();
+    submitLead({ enquiryType: "revenue-audit", name: name.value, company: company.value, whatsapp: phone.value, bottleneck: bottleneck.value, currency: state.currency, selectedIndustry: state.industry, consent: consent.checked })
+      .then(sent => { setStatus("[data-audit-status]", sent ? "Your audit enquiry has been recorded. We will contact you shortly." : phase3.audit.success, true); event.currentTarget.reset(); })
+      .catch(() => setStatus("[data-audit-status]", "We could not record your enquiry. Please try again.", false));
   });
   $$("[data-faq-trigger]").forEach(button => button.addEventListener("click", () => {
     const answer = document.getElementById(button.getAttribute("aria-controls"));

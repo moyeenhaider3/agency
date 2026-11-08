@@ -9,6 +9,7 @@
   <script src="content/phase1.js"></script>
   <script src="content/phase2.js"></script>
   <script src="content/phase3.js"></script>
+  <script src="content/integrations.js"></script>
   <script src="main.js" defer></script>
 </head>
 <body>
@@ -127,6 +128,7 @@
           <label><span data-audit-company-label></span><input name="company" type="text" autocomplete="organization" required data-audit-company></label>
           <label><span data-audit-phone-label></span><input name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" required data-audit-phone></label>
           <label><span data-audit-bottleneck-label></span><textarea name="bottleneck" rows="4" required data-audit-bottleneck></textarea></label>
+          <label class="consent-field"><span><input type="checkbox" required data-audit-consent> <span data-consent-label></span></span></label>
           <button class="button button-dark" type="submit" data-audit-submit></button>
           <p class="form-status" role="status" aria-live="polite" data-audit-status></p>
         </form>
@@ -149,6 +151,7 @@
         <label><span data-demo-industry-label></span><select name="industry" required data-demo-industry></select></label>
         <label><span data-demo-phone-label></span><input name="phone" type="tel" inputmode="tel" autocomplete="tel" required data-demo-phone></label>
         <p class="privacy-note" data-demo-privacy></p>
+        <label class="consent-field"><span><input type="checkbox" required data-demo-consent> <span data-consent-label></span></span></label>
         <button class="button button-dark" type="submit" data-demo-submit></button>
         <p class="form-status" role="status" aria-live="polite" data-demo-status></p>
       </form>

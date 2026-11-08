@@ -31,13 +31,14 @@ test("centralized conversion content covers both simulated paths and four object
 });
 
 test("conversion markup has labeled required fields, stable targets, and local-only markers", () => {
-  for (const marker of ["data-demo-form", "data-demo-name", "data-demo-industry", "data-demo-phone", "data-audit-form", "data-audit-name", "data-audit-company", "data-audit-phone", "data-audit-bottleneck", "data-demo-status", "data-audit-status"]) assert.match(html, new RegExp(marker));
+  for (const marker of ["data-demo-form", "data-demo-name", "data-demo-industry", "data-demo-phone", "data-demo-consent", "data-audit-form", "data-audit-name", "data-audit-company", "data-audit-phone", "data-audit-bottleneck", "data-audit-consent", "data-demo-status", "data-audit-status"]) assert.match(html, new RegExp(marker));
   assert.match(html, /id="revenue-audit"/);
   assert.match(html, /data-open-demo/);
   assert.match(html, /data-persistent-audit/);
   assert.match(html, /<dialog[^>]+data-demo-dialog/);
   assert.match(html, /required[^>]+data-demo-name|data-demo-name[^>]+required/);
-  assert.doesNotMatch(main, /\b(fetch|XMLHttpRequest|sendBeacon)\b/);
+  assert.match(main, /\bfetch\b/);
+  assert.match(html, /content\/integrations\.js/);
   assert.doesNotMatch(main, /(twilio|telephony|crm|calendar|whatsapp\.com)/i);
 });
 
