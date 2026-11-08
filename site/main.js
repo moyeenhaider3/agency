@@ -62,7 +62,8 @@
   renderAll();
 
   $$("[data-currency]").forEach(button => button.addEventListener("click", () => { state.currency = button.dataset.currency; renderAll(); }));
-  ["volume", "currentInput", "recoverableShare", "manualHours"].forEach(key => $(`[data-roi-${key === "currentInput" ? "input" : key}]`).addEventListener("input", event => { state[key] = event.target.value; renderRoi(); }));
+  const roiInputSelectors = { volume: "[data-roi-volume]", currentInput: "[data-roi-input]", recoverableShare: "[data-roi-share]", manualHours: "[data-roi-hours]" };
+  Object.entries(roiInputSelectors).forEach(([key, selector]) => $(selector)?.addEventListener("input", event => { state[key] = event.target.value; renderRoi(); }));
   $("[data-plan-select]").innerHTML = content.plans.map(plan => `<option value="${plan.id}">${plan.name}</option>`).join("");
   $("[data-plan-select]").addEventListener("change", event => { state.planId = event.target.value; renderRoi(); });
 
