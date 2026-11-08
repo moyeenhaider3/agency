@@ -68,7 +68,8 @@ Plans:
   2. Open Graph and supported social preview metadata provides coherent title, description, URL, type, image dimensions, and alt guidance with no placeholder asset path.
   3. Reviewed robots/sitemap behavior makes public indexing intentional and does not link or expose `.planning`, tests, secrets/endpoints, or debug artifacts.
   4. Any structured data validates and describes only verifiable organization/service information; unsupported ratings, testimonials, guaranteed savings, and fabricated reviews are absent, or structured data is omitted.
-**Plans**: TBD
+**Plans**: 1/1 plans created
+- [ ] 07-01-PLAN.md — Add intentional public metadata, social preview, and crawl controls after URL confirmation
 
 ## Execution Order
 
@@ -86,6 +87,7 @@ Production CRM, lead routing, voice calling, WhatsApp/messaging, calendar, custo
 | 4. Hero Messaging & Experiment Foundation | 1/1 | Complete | 2026-11-08 |
 | 5. Conversion UX & Privacy-Safe Measurement | 1/1 | Complete | 2026-11-08 |
 | 6. Performance & Core Web Vitals | 1/1 | Complete | 2026-11-08 |
+| 7. SEO & Social Discoverability | 0/1 | Planned (URL gate) | - |
 | 7. SEO & Social Discoverability | 0/TBD | Not started | - |
 
 ## Project History
