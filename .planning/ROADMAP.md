@@ -13,7 +13,7 @@
 - [x] **Phase 4: Hero Messaging & Experiment Foundation** - Make the first viewport outcome-led, scannable, and ready for controlled message variants.
 - [x] **Phase 5: Conversion UX & Privacy-Safe Measurement** - Reduce enquiry friction and instrument both journeys with a local-verifiable, no-op-safe event contract.
 - [x] **Phase 6: Performance & Core Web Vitals** - Keep the conversion path fast, stable, and usable on constrained devices and networks.
-- [ ] **Phase 7: SEO & Social Discoverability** - Make the public page intentional for search crawlers and social previews without exposing internal artifacts.
+- [x] **Phase 7: SEO & Social Discoverability** - Make the public page intentional for search crawlers and social previews without exposing internal artifacts.
 
 ## Phase Details
 
@@ -68,8 +68,8 @@ Plans:
   2. Open Graph and supported social preview metadata provides coherent title, description, URL, type, image dimensions, and alt guidance with no placeholder asset path.
   3. Reviewed robots/sitemap behavior makes public indexing intentional and does not link or expose `.planning`, tests, secrets/endpoints, or debug artifacts.
   4. Any structured data validates and describes only verifiable organization/service information; unsupported ratings, testimonials, guaranteed savings, and fabricated reviews are absent, or structured data is omitted.
-**Plans**: 1/1 plans created
-- [ ] 07-01-PLAN.md — Add intentional public metadata, social preview, and crawl controls after URL confirmation
+**Plans**: 1/1 plans executed
+- [x] 07-01-PLAN.md — Add intentional public metadata, social preview, and crawl controls after URL confirmation
 
 ## Execution Order
 
@@ -87,6 +87,7 @@ Production CRM, lead routing, voice calling, WhatsApp/messaging, calendar, custo
 | 4. Hero Messaging & Experiment Foundation | 1/1 | Complete | 2026-11-08 |
 | 5. Conversion UX & Privacy-Safe Measurement | 1/1 | Complete | 2026-11-08 |
 | 6. Performance & Core Web Vitals | 1/1 | Complete | 2026-11-08 |
+| 7. SEO & Social Discoverability | 1/1 | Complete | 2026-11-08 |
 | 7. SEO & Social Discoverability | 0/1 | Planned (URL gate) | - |
 | 7. SEO & Social Discoverability | 0/TBD | Not started | - |
 

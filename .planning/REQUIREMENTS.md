@@ -70,13 +70,13 @@ Improve the existing marketing frontend so the right visitor understands the pro
 
 ### SEO and Social Sharing
 
-- [ ] **SEO-01:** The page has a search-intent-aligned title, unique description, canonical URL, correct language/viewport metadata, and a crawlable heading/landmark structure for the public marketing page.
+- [x] **SEO-01:** The page has a search-intent-aligned title, unique description, canonical URL, correct language/viewport metadata, and a crawlable heading/landmark structure for the public marketing page.
   - **Acceptance:** Metadata is present in the rendered source, the canonical points to the intended public URL, exactly one meaningful H1 is present, and navigation/content landmarks remain available without JavaScript.
-- [ ] **SEO-02:** Social sharing metadata provides a coherent title, description, canonical/share URL, and image dimensions/alt guidance for Open Graph and supported social preview consumers.
+- [x] **SEO-02:** Social sharing metadata provides a coherent title, description, canonical/share URL, and image dimensions/alt guidance for Open Graph and supported social preview consumers.
   - **Acceptance:** A metadata inspection or preview validator finds complete `og:title`, `og:description`, `og:url`, `og:type`, and image metadata, with copy matching the approved positioning and no placeholder asset path.
-- [ ] **SEO-03:** Public crawl and indexing behavior is intentional and does not expose internal planning, test, or configuration artifacts.
+- [x] **SEO-03:** Public crawl and indexing behavior is intentional and does not expose internal planning, test, or configuration artifacts.
   - **Acceptance:** The deployment includes reviewed robots/sitemap behavior for the public page, and no `.planning`, test, endpoint-secret, or debug artifact is linked or indexed from the site.
-- [ ] **SEO-04:** Structured data, if used, describes only verifiable organization/service information and does not turn illustrative ROI figures into review, financial, or outcome claims.
+- [x] **SEO-04:** Structured data, if used, describes only verifiable organization/service information and does not turn illustrative ROI figures into review, financial, or outcome claims.
   - **Acceptance:** Any JSON-LD passes syntax validation and contains no unsupported ratings, testimonials, guaranteed savings, or fabricated reviews; omitting structured data is acceptable if these conditions cannot be met.
 
 ## Non-Goals / Explicit Deferrals
@@ -113,9 +113,9 @@ The following are intentionally not v1.1 deliverables:
 | PERF-01 | Phase 6 | Complete |
 | PERF-02 | Phase 6 | Complete |
 | PERF-03 | Phase 6 | Complete |
-| SEO-01 | Phase 7 | Pending |
-| SEO-02 | Phase 7 | Pending |
-| SEO-03 | Phase 7 | Pending |
-| SEO-04 | Phase 7 | Pending |
+| SEO-01 | Phase 7 | Complete |
+| SEO-02 | Phase 7 | Complete |
+| SEO-03 | Phase 7 | Complete |
+| SEO-04 | Phase 7 | Complete |
 
 **Coverage:** 22/22 v1.1 requirements mapped exactly once across Phases 4-7.
