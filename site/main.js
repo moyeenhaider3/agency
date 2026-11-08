@@ -3,18 +3,47 @@
   const phase1 = window.PHASE1_CONTENT;
   const content = window.PHASE2_CONTENT;
   const phase3 = window.PHASE3_CONTENT;
-  if (!phase1 || !content || !phase3) return;
+  const phase4 = window.PHASE4_CONTENT;
+  if (!phase1 || !content || !phase3 || !phase4) return;
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
   const setText = (selector, value) => { const node = $(selector); if (node) node.textContent = value; };
   const list = (selector, items, render) => { const node = $(selector); if (node) node.innerHTML = items.map(render).join(""); };
+  const safeSession = () => { try { return window.sessionStorage; } catch { return null; } };
+  const session = safeSession();
+  const seed = (() => {
+    try {
+      const key = "agenticeera-phase4-seed";
+      const existing = session?.getItem(key);
+      if (existing) return existing;
+      const value = `${location.pathname}|${navigator.userAgent || "browser"}`;
+      session?.setItem(key, value);
+      return value;
+    } catch { return "safe-control-seed"; }
+  })();
+  const assignment = phase4.resolveVariant(phase4.experiment, seed);
+  const activeVariant = assignment.content;
+  const variantContext = { experiment: phase4.experiment.key, version: phase4.version, variant: assignment.id };
+  const emit = (name, details = {}) => {
+    const payload = { name, ...variantContext, ...details };
+    if (!Array.isArray(window.__PHASE4_EVENTS)) window.__PHASE4_EVENTS = [];
+    window.__PHASE4_EVENTS.push(payload);
+    if (typeof window.PHASE4_EVENT_SINK === "function") window.PHASE4_EVENT_SINK(payload);
+    window.dispatchEvent(new CustomEvent(`phase4:${name}`, { detail: payload }));
+  };
+  const exposureKey = `agenticeera-phase4-exposure:${phase4.experiment.key}`;
+  if (!session?.getItem(exposureKey)) {
+    emit("hero_exposure", { placement: "hero" });
+    try { session?.setItem(exposureKey, assignment.id); } catch { /* control fallback remains local */ }
+  }
   const state = { industry: content.industries[0].id, currency: "INR", volume: "", currentInput: "", recoverableShare: "", manualHours: "", planId: "starter" };
   const getIndustry = () => content.industries.find(item => item.id === state.industry) || content.industries[0];
 
   list("[data-nav-links]", phase1.nav, item => `<a href="${item.href}">${item.label}</a>`);
-  setText("[data-hero-eyebrow]", phase1.eyebrow); setText("[data-hero-title]", phase1.hero.title); setText("[data-hero-intro]", phase1.hero.intro);
-  setText("[data-hero-promise]", phase1.hero.promise); setText("[data-primary-action]", phase3.actions.demo);
-  list("[data-metrics]", phase1.metrics, item => `<div class="metric"><strong>${item.value}</strong><span>${item.label}</span><small>${item.note}</small></div>`);
+  setText("[data-hero-eyebrow]", activeVariant.eyebrow); setText("[data-hero-title]", activeVariant.title); setText("[data-hero-intro]", activeVariant.intro);
+  setText("[data-hero-promise]", activeVariant.promise); setText("[data-primary-action]", activeVariant.primaryAction);
+  setText("[data-secondary-action]", activeVariant.secondaryAction);
+  list("[data-metrics]", activeVariant.proof, item => `<div class="metric"><strong>${item.value}</strong><span>${item.label}</span><small>${item.qualifier} · ${item.source}</small></div>`);
   setText("[data-comparison-title]", phase1.comparison.title); setText("[data-comparison-intro]", phase1.comparison.intro); setText("[data-old-label]", phase1.comparison.old.label); setText("[data-new-label]", phase1.comparison.new.label);
   list("[data-old-points]", phase1.comparison.old.points, item => `<li>${item}</li>`); list("[data-new-points]", phase1.comparison.new.points, item => `<li>${item}</li>`);
   const cost = phase1.comparison.costComparison;
@@ -64,7 +93,7 @@
 
   function renderConversionCopy() {
     const demo = phase3.demo, audit = phase3.audit;
-    setText("[data-secondary-action]", phase3.actions.audit); setText("[data-demo-title]", demo.title); setText("[data-demo-intro]", demo.intro); setText("[data-demo-privacy]", demo.privacy);
+    setText("[data-secondary-action]", activeVariant.secondaryAction); setText("[data-demo-title]", demo.title); setText("[data-demo-intro]", demo.intro); setText("[data-demo-privacy]", demo.privacy);
     $$("[data-demo-privacy]").forEach(node => { node.textContent = demo.privacy; });
     $$("[data-consent-label]").forEach(node => { node.textContent = demo.consent; });
     setText("[data-demo-name-label]", demo.labels.name); setText("[data-demo-industry-label]", demo.labels.industry); setText("[data-demo-phone-label]", demo.labels.phone); setText("[data-demo-submit]", demo.submit);
@@ -94,6 +123,7 @@
   let lastDemoTrigger = null;
   function openDemo(event) {
     lastDemoTrigger = event?.currentTarget || document.activeElement;
+    emit("cta_click", { journey: "demo", placement: lastDemoTrigger?.dataset?.persistentDemo !== undefined ? "persistent" : "hero" });
     setStatus("[data-demo-status]", "", true);
     if (typeof demoDialog.showModal === "function") demoDialog.showModal();
     else demoDialog.setAttribute("open", "");
@@ -105,6 +135,7 @@
     lastDemoTrigger?.focus?.();
   }
   $$("[data-open-demo]").forEach(button => button.addEventListener("click", openDemo));
+  $$("[data-secondary-action], [data-persistent-audit]").forEach(link => link.addEventListener("click", () => emit("cta_click", { journey: "audit", placement: link.hasAttribute("data-persistent-audit") ? "persistent" : "hero" })));
   $("[data-close-demo]")?.addEventListener("click", closeDemo);
   demoDialog?.addEventListener("click", event => { if (event.target === demoDialog) closeDemo(); });
   document.addEventListener("keydown", event => { if (event.key === "Escape" && demoDialog?.open) closeDemo(); });
@@ -113,7 +144,8 @@
     const name = $("[data-demo-name]"), industry = $("[data-demo-industry]"), phone = $("[data-demo-phone]"), consent = $("[data-demo-consent]");
     if (!name.value.trim() || !industry.value || !phone.value.trim() || !consent.checked) { setStatus("[data-demo-status]", phase3.demo.errors.required, false); return; }
     if (!validPhone(phone.value)) { setStatus("[data-demo-status]", phase3.demo.errors.phone, false); phone.focus(); return; }
-    submitLead({ enquiryType: "live-demo", name: name.value, industry: industry.value, phone: phone.value, consent: consent.checked })
+    emit("form_submit_attempt", { journey: "demo", placement: "demo-modal" });
+    submitLead({ enquiryType: "live-demo", name: name.value, industry: industry.value, phone: phone.value, consent: consent.checked, variant: variantContext.variant })
       .then(sent => setStatus("[data-demo-status]", sent ? "Your demo request has been recorded. We will contact you shortly." : phase3.demo.success, true))
       .catch(() => setStatus("[data-demo-status]", "We could not record your request. Please try again.", false));
   });
@@ -122,7 +154,8 @@
     const name = $("[data-audit-name]"), company = $("[data-audit-company]"), phone = $("[data-audit-phone]"), bottleneck = $("[data-audit-bottleneck]"), consent = $("[data-audit-consent]");
     if (![name, company, phone, bottleneck].every(field => field?.value.trim()) || !consent.checked) { setStatus("[data-audit-status]", phase3.audit.errors.required, false); return; }
     if (!validPhone(phone.value)) { setStatus("[data-audit-status]", phase3.audit.errors.phone, false); phone.focus(); return; }
-    submitLead({ enquiryType: "revenue-audit", name: name.value, company: company.value, whatsapp: phone.value, bottleneck: bottleneck.value, currency: state.currency, selectedIndustry: state.industry, consent: consent.checked })
+    emit("form_submit_attempt", { journey: "audit", placement: "audit-form" });
+    submitLead({ enquiryType: "revenue-audit", name: name.value, company: company.value, whatsapp: phone.value, bottleneck: bottleneck.value, currency: state.currency, selectedIndustry: state.industry, consent: consent.checked, variant: variantContext.variant })
       .then(sent => { setStatus("[data-audit-status]", sent ? "Your audit enquiry has been recorded. We will contact you shortly." : phase3.audit.success, true); event.currentTarget.reset(); })
       .catch(() => setStatus("[data-audit-status]", "We could not record your enquiry. Please try again.", false));
   });
