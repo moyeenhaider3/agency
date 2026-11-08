@@ -13,9 +13,9 @@
 
 ### Conversion
 
-- [ ] **CONV-01**: Visitor can open a 20-second live-call demo modal, provide name, industry, and phone number, and receive clear submission feedback.
-- [ ] **CONV-02**: Visitor can submit a 15-minute revenue-audit enquiry with name, company, WhatsApp number, and primary bottleneck.
-- [ ] **CONV-03**: Visitor can access a persistent mobile/desktop conversion action for the live demo and pilot/audit path.
+- [x] **CONV-01**: Visitor can open a 20-second live-call demo modal, provide name, industry, and phone number, and receive clear submission feedback.
+- [x] **CONV-02**: Visitor can submit a 15-minute revenue-audit enquiry with name, company, WhatsApp number, and primary bottleneck.
+- [x] **CONV-03**: Visitor can access a persistent mobile/desktop conversion action for the live demo and pilot/audit path.
 
 ### Industry Outcomes
 
@@ -34,13 +34,13 @@
 
 - [x] **TRUST-01**: Visitor can understand the three-step workflow audit, watch-mode pilot, and one-click human-control model.
 - [x] **TRUST-02**: Visitor can find plain-language assurances covering data ownership, privacy, India data residency, opt-out handling, and critical-response reliability.
-- [ ] **TRUST-03**: Visitor can expand accessible FAQ items addressing voice quality, existing software compatibility, risky requests, and the pilot guarantee.
+- [x] **TRUST-03**: Visitor can expand accessible FAQ items addressing voice quality, existing software compatibility, risky requests, and the pilot guarantee.
 - [x] **TRUST-04**: Visitor can distinguish illustrative examples and estimates from confirmed guarantees or independently verified results.
 
 ### Quality
 
-- [ ] **QUAL-01**: All primary sections and interactions work responsively on mobile, tablet, and desktop.
-- [ ] **QUAL-02**: Keyboard users can operate navigation, tabs, sliders, modal, FAQ, and forms with visible focus and appropriate labels.
+- [x] **QUAL-01**: All primary sections and interactions work responsively on mobile, tablet, and desktop.
+- [x] **QUAL-02**: Keyboard users can operate navigation, tabs, sliders, modal, FAQ, and forms with visible focus and appropriate labels.
 - [x] **QUAL-03**: Visitor-facing copy avoids the banned technical jargon and consistently prioritizes business outcomes.
 - [x] **QUAL-04**: The page uses the specified alabaster/white, obsidian, emerald, and amber visual system with restrained motion and readable financial numerals.
 
@@ -74,9 +74,9 @@
 | PROP-01 | Phase 1 | Complete |
 | PROP-02 | Phase 1 | Complete |
 | PROP-03 | Phase 2 | Complete |
-| CONV-01 | Phase 3 | Pending |
-| CONV-02 | Phase 3 | Pending |
-| CONV-03 | Phase 3 | Pending |
+| CONV-01 | Phase 3 | Complete |
+| CONV-02 | Phase 3 | Complete |
+| CONV-03 | Phase 3 | Complete |
 | IND-01 | Phase 2 | Complete |
 | IND-02 | Phase 2 | Complete |
 | IND-03 | Phase 1 | Complete |
@@ -86,10 +86,10 @@
 | PRICE-02 | Phase 2 | Complete |
 | TRUST-01 | Phase 1 | Complete |
 | TRUST-02 | Phase 1 | Complete |
-| TRUST-03 | Phase 3 | Pending |
+| TRUST-03 | Phase 3 | Complete |
 | TRUST-04 | Phase 1 | Complete |
-| QUAL-01 | Phase 3 | Pending |
-| QUAL-02 | Phase 3 | Pending |
+| QUAL-01 | Phase 3 | Complete |
+| QUAL-02 | Phase 3 | Complete |
 | QUAL-03 | Phase 1 | Complete |
 | QUAL-04 | Phase 1 | Complete |
 
