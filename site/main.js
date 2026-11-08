@@ -43,6 +43,8 @@
     setText("[data-volume-label]", item.inputs.volumeLabel);
     const volume = $("[data-roi-volume]"), input = $("[data-roi-input]"), share = $("[data-roi-share]"), hours = $("[data-roi-hours]");
     volume.min = item.inputs.min; volume.max = item.inputs.max; volume.value = state.volume; input.value = state.currentInput; share.value = state.recoverableShare; hours.value = state.manualHours;
+    const planSelect = $("[data-plan-select]");
+    if (planSelect) planSelect.value = state.planId;
     const result = content.calculateRoi(item, { volume: state.volume, currentInput: state.currentInput, recoverableShare: state.recoverableShare, manualHours: state.manualHours, planId: state.planId }, state.currency);
     const output = $("[data-roi-output]");
     if (!result) { output.innerHTML = `<div class="roi-empty"><p class="card-label">Waiting for your assumptions</p><h3>Enter the four operating inputs to see an estimate.</h3><p>Your current input × recoverable share ÷ 100 becomes estimated monthly value. We do not invent a coefficient for you.</p></div>`; return; }
