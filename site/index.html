@@ -7,6 +7,7 @@
   <title>AgenticeEra Solution — Recover what routine work costs you</title>
   <link rel="stylesheet" href="styles.css">
   <script src="content/phase1.js"></script>
+  <script src="content/phase2.js"></script>
   <script src="main.js" defer></script>
 </head>
 <body>
@@ -50,10 +51,11 @@
       </div>
     </section>
 
-    <section id="industry-results" class="section-muted destination-section" data-section>
-      <div class="container destination-grid">
-        <div><p class="eyebrow">01 / <span data-industry-kicker></span></p><h2 data-industry-title></h2></div>
-        <div><p class="section-lead" data-industry-text></p><div class="industry-list" data-industries></div></div>
+    <section id="industry-results" class="section-muted destination-section" data-section aria-labelledby="industry-title">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">01 / Industry results</p><h2 id="industry-title">A business case for the work in front of you.</h2><p>Choose the closest operating context to see the costly problem, the first-day change, and the supplied example behind it.</p></div>
+        <div class="industry-tabs" role="tablist" aria-label="Industry playbooks" data-industry-tabs></div>
+        <div class="industry-playbook" data-industry-playbook></div>
       </div>
     </section>
 
@@ -89,8 +91,33 @@
       <div class="container evidence-box"><div><p class="card-label">Evidence note</p><h3 data-evidence-title></h3></div><p data-evidence-text></p></div>
     </section>
 
-    <section id="roi-calculator" class="section-light destination-section" data-section><div class="container destination-grid"><div><p class="eyebrow">05 / <span data-roi-kicker></span></p><h2 data-roi-title></h2></div><p class="section-lead" data-roi-text></p></div></section>
-    <section id="pricing" class="section-dark destination-section" data-section><div class="container destination-grid"><div><p class="eyebrow">06 / <span data-pricing-kicker></span></p><h2 data-pricing-title></h2></div><p class="section-lead" data-pricing-text></p></div></section>
+    <section id="roi-calculator" class="section-light destination-section" data-section aria-labelledby="roi-title">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">05 / ROI calculator</p><h2 id="roi-title">Turn your current input into a cautious payback view.</h2><p>Enter your own assumptions. Results are estimates for discussion, not guarantees or financial advice.</p></div>
+        <div class="currency-switcher" role="group" aria-label="Display currency"><span>View in</span><button type="button" class="currency-button is-active" data-currency="INR" aria-pressed="true">India / INR</button><button type="button" class="currency-button" data-currency="USD" aria-pressed="false">Global / USD</button></div>
+        <div class="roi-layout">
+          <form class="roi-form" data-roi-form>
+            <fieldset><legend>Your inputs</legend>
+              <label><span data-volume-label>Monthly volume</span><input type="number" min="0" step="1" data-roi-volume inputmode="decimal"></label>
+              <label><span>Current monthly input</span><input type="number" min="0" step="1" data-roi-input inputmode="decimal"></label>
+              <label><span>Recoverable share (%)</span><input type="number" min="0" max="100" step="1" data-roi-share inputmode="decimal"></label>
+              <label><span>Current manual hours / month</span><input type="number" min="0" step="1" data-roi-hours inputmode="decimal"></label>
+              <label><span>Plan for payback estimate</span><select data-plan-select></select></label>
+            </fieldset>
+            <p class="form-help" data-roi-help>Enter all four operating inputs to see an estimate. No coefficient is assumed for you.</p>
+          </form>
+          <div class="roi-output" aria-live="polite" data-roi-output></div>
+        </div>
+      </div>
+    </section>
+    <section id="pricing" class="section-dark destination-section" data-section aria-labelledby="pricing-title">
+      <div class="container">
+        <div class="section-heading heading-inverse"><p class="eyebrow">06 / Pricing</p><h2 id="pricing-title">A transparent path to starting.</h2><p>Choose the level of operating support that fits the next constraint in your business.</p></div>
+        <div class="pricing-grid" data-pricing></div>
+        <div class="usage-promise" data-usage-promise></div>
+        <div class="pilot-box" data-pilot></div>
+      </div>
+    </section>
     <section id="faqs" class="section-light destination-section" data-section><div class="container destination-grid"><div><p class="eyebrow">07 / <span data-faqs-kicker></span></p><h2 data-faqs-title></h2></div><p class="section-lead" data-faqs-text></p></div></section>
   </main>
 
