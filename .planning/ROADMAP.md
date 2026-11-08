@@ -11,7 +11,7 @@
 ## Phases
 
 - [x] **Phase 4: Hero Messaging & Experiment Foundation** - Make the first viewport outcome-led, scannable, and ready for controlled message variants.
-- [ ] **Phase 5: Conversion UX & Privacy-Safe Measurement** - Reduce enquiry friction and instrument both journeys with a local-verifiable, no-op-safe event contract.
+- [x] **Phase 5: Conversion UX & Privacy-Safe Measurement** - Reduce enquiry friction and instrument both journeys with a local-verifiable, no-op-safe event contract.
 - [ ] **Phase 6: Performance & Core Web Vitals** - Keep the conversion path fast, stable, and usable on constrained devices and networks.
 - [ ] **Phase 7: SEO & Social Discoverability** - Make the public page intentional for search crawlers and social previews without exposing internal artifacts.
 
@@ -44,8 +44,8 @@ Plans:
   4. Submission messaging explains the human follow-up or retry path and does not imply that calling, WhatsApp, calendar, CRM, or portal workflows were created.
   5. Both journeys emit a documented event sequence for view, CTA, start, validation failure, submit attempt, and outcome; records distinguish journey and approved non-personal context while excluding contact fields.
   6. With analytics configuration absent or blocked, the site remains fully usable with no tracking error; a local sink or test can verify event names, fields, and ordering without external transmission.
-**Plans**: 1/1 plans created
-- [ ] 05-01-PLAN.md — Complete both enquiry journeys and verify the privacy-safe local funnel contract
+**Plans**: 1/1 plans executed
+- [x] 05-01-PLAN.md — Complete both enquiry journeys and verify the privacy-safe local funnel contract
 **UI hint**: yes
 
 ### Phase 6: Performance & Core Web Vitals
@@ -83,7 +83,7 @@ Production CRM, lead routing, voice calling, WhatsApp/messaging, calendar, custo
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 4. Hero Messaging & Experiment Foundation | 1/1 | Complete | 2026-11-08 |
-| 5. Conversion UX & Privacy-Safe Measurement | 0/TBD | Not started | - |
+| 5. Conversion UX & Privacy-Safe Measurement | 1/1 | Complete | 2026-11-08 |
 | 6. Performance & Core Web Vitals | 0/TBD | Not started | - |
 | 7. SEO & Social Discoverability | 0/TBD | Not started | - |
 

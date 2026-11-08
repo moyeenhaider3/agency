@@ -1,4 +1,15 @@
 window.PHASE3_CONTENT = {
+  eventContract: {
+    version: "2026-11",
+    events: {
+      page_view: "Initial page render; non-personal page, device, and active-context fields.",
+      cta_click: "Conversion action activation; journey, placement, section, device, and active-context fields.",
+      form_start: "First focus or edit in a journey form; journey, placement, section, device, and active-context fields.",
+      validation_failure: "Blocked submission; journey, placement, field identifier, device, and active-context fields.",
+      form_submit_attempt: "Validated form submission; journey, placement, device, non-personal form context, and active-context fields.",
+      form_outcome: "Lead transport result; journey, placement, outcome, device, and active-context fields."
+    }
+  },
   demo: {
     title: "See how a routine enquiry can move in 20 seconds.",
     intro: "Share only the details needed for this page-only demonstration. No call will be placed.",
@@ -6,7 +17,9 @@ window.PHASE3_CONTENT = {
     submit: "Start the simulated demo",
     privacy: "We collect only these fields to follow up on your request.",
     consent: "I agree that AgenticeEra Solution may store these details to contact me about this enquiry.",
-    success: "Simulated success: your demo request is ready for this page flow. No real call was placed.",
+    success: "Simulated success: your demo request is ready for this page flow. No real call was placed. We will contact you about the next human follow-up.",
+    captured: "Your demo enquiry has been recorded. A member of our team will contact you shortly.",
+    failure: "We could not record your demo enquiry. Please check your details and try again.",
     errors: { required: "Please complete your name, industry, and phone number.", phone: "Enter a valid phone number with at least 7 digits." }
   },
   audit: {
@@ -16,7 +29,9 @@ window.PHASE3_CONTENT = {
     submit: "Request the 15-minute audit",
     privacy: "We collect only what is needed to understand the bottleneck and follow up on this enquiry.",
     consent: "I agree that AgenticeEra Solution may store these details to contact me about this enquiry.",
-    success: "Simulated success: your audit enquiry is recorded for this page flow only. No external submission was made.",
+    success: "Simulated success: your audit enquiry is recorded for this page flow only. No external submission was made. We will contact you about the next human follow-up.",
+    captured: "Your audit enquiry has been recorded. A member of our team will contact you shortly.",
+    failure: "We could not record your audit enquiry. Please check your details and try again.",
     errors: { required: "Please complete your name, company, WhatsApp number, and bottleneck.", phone: "Enter a valid WhatsApp number with at least 7 digits." }
   },
   faq: {

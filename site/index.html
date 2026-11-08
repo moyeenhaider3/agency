@@ -125,11 +125,11 @@
       <div class="container conversion-layout">
         <div class="section-heading"><p class="eyebrow">07 / Revenue audit</p><h2 id="audit-title" data-audit-title></h2><p data-audit-intro></p><p class="privacy-note" data-audit-privacy></p></div>
         <form class="conversion-form" data-audit-form novalidate>
-          <label><span data-audit-name-label></span><input name="name" type="text" autocomplete="name" required data-audit-name></label>
-          <label><span data-audit-company-label></span><input name="company" type="text" autocomplete="organization" required data-audit-company></label>
-          <label><span data-audit-phone-label></span><input name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" required data-audit-phone></label>
-          <label><span data-audit-bottleneck-label></span><textarea name="bottleneck" rows="4" required data-audit-bottleneck></textarea></label>
-          <label class="consent-field"><span><input type="checkbox" required data-audit-consent> <span data-consent-label></span></span></label>
+          <label><span data-audit-name-label></span><input name="name" type="text" autocomplete="name" required aria-describedby="audit-name-error" data-audit-name><small class="field-error" id="audit-name-error" data-audit-name-error></small></label>
+          <label><span data-audit-company-label></span><input name="company" type="text" autocomplete="organization" required aria-describedby="audit-company-error" data-audit-company><small class="field-error" id="audit-company-error" data-audit-company-error></small></label>
+          <label><span data-audit-phone-label></span><input name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" required aria-describedby="audit-phone-error" data-audit-phone><small class="field-error" id="audit-phone-error" data-audit-phone-error></small></label>
+          <label><span data-audit-bottleneck-label></span><textarea name="bottleneck" rows="4" required aria-describedby="audit-bottleneck-error" data-audit-bottleneck></textarea><small class="field-error" id="audit-bottleneck-error" data-audit-bottleneck-error></small></label>
+          <label class="consent-field"><span><input type="checkbox" required aria-describedby="audit-consent-error" data-audit-consent> <span data-consent-label></span></span><small class="field-error" id="audit-consent-error" data-audit-consent-error></small></label>
           <button class="button button-dark" type="submit" data-audit-submit></button>
           <p class="form-status" role="status" aria-live="polite" data-audit-status></p>
         </form>
@@ -148,11 +148,11 @@
       <h2 id="demo-title" data-demo-title></h2>
       <p data-demo-intro></p>
       <form class="conversion-form" data-demo-form novalidate>
-        <label><span data-demo-name-label></span><input name="name" type="text" autocomplete="name" required data-demo-name></label>
-        <label><span data-demo-industry-label></span><select name="industry" required data-demo-industry></select></label>
-        <label><span data-demo-phone-label></span><input name="phone" type="tel" inputmode="tel" autocomplete="tel" required data-demo-phone></label>
+        <label><span data-demo-name-label></span><input name="name" type="text" autocomplete="name" required aria-describedby="demo-name-error" data-demo-name><small class="field-error" id="demo-name-error" data-demo-name-error></small></label>
+        <label><span data-demo-industry-label></span><select name="industry" required aria-describedby="demo-industry-error" data-demo-industry></select><small class="field-error" id="demo-industry-error" data-demo-industry-error></small></label>
+        <label><span data-demo-phone-label></span><input name="phone" type="tel" inputmode="tel" autocomplete="tel" required aria-describedby="demo-phone-error" data-demo-phone><small class="field-error" id="demo-phone-error" data-demo-phone-error></small></label>
         <p class="privacy-note" data-demo-privacy></p>
-        <label class="consent-field"><span><input type="checkbox" required data-demo-consent> <span data-consent-label></span></span></label>
+        <label class="consent-field"><span><input type="checkbox" required aria-describedby="demo-consent-error" data-demo-consent> <span data-consent-label></span></span><small class="field-error" id="demo-consent-error" data-demo-consent-error></small></label>
         <button class="button button-dark" type="submit" data-demo-submit></button>
         <p class="form-status" role="status" aria-live="polite" data-demo-status></p>
       </form>

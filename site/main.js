@@ -25,19 +25,22 @@
   try { session?.setItem(variantKey, assignment.id); } catch { /* control remains usable without storage */ }
   const activeVariant = assignment.content;
   const variantContext = { experiment: phase4.experiment.key, version: phase4.version, variant: assignment.id };
+  const state = { industry: content.industries[0].id, currency: "INR", volume: "", currentInput: "", recoverableShare: "", manualHours: "", planId: "starter" };
+  const deviceClass = () => window.matchMedia?.("(max-width: 767px)").matches ? "mobile" : window.matchMedia?.("(max-width: 1023px)").matches ? "tablet" : "desktop";
+  const safeContext = () => ({ section: location.hash || "#top", device: deviceClass(), industry: state?.industry || content.industries[0].id, currency: state?.currency || "INR" });
   const emit = (name, details = {}) => {
-    const payload = { name, ...variantContext, ...details };
+    const payload = { name, contract: phase3.eventContract.version, ...variantContext, ...safeContext(), ...details };
     if (!Array.isArray(window.__PHASE4_EVENTS)) window.__PHASE4_EVENTS = [];
     window.__PHASE4_EVENTS.push(payload);
     if (typeof window.PHASE4_EVENT_SINK === "function") window.PHASE4_EVENT_SINK(payload);
     window.dispatchEvent(new CustomEvent(`phase4:${name}`, { detail: payload }));
   };
+  emit("page_view", { journey: "page", placement: "page" });
   const exposureKey = `agenticeera-phase4-exposure:${phase4.experiment.key}`;
   if (!session?.getItem(exposureKey)) {
     emit("hero_exposure", { placement: "hero" });
     try { session?.setItem(exposureKey, assignment.id); } catch { /* control fallback remains local */ }
   }
-  const state = { industry: content.industries[0].id, currency: "INR", volume: "", currentInput: "", recoverableShare: "", manualHours: "", planId: "starter" };
   const getIndustry = () => content.industries.find(item => item.id === state.industry) || content.industries[0];
 
   list("[data-nav-links]", phase1.nav, item => `<a href="${item.href}">${item.label}</a>`);
@@ -108,7 +111,6 @@
     list("[data-faq-list]", phase3.faq.items, (item, index) => `<article class="faq-item"><h3><button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-answer-${index}" data-faq-trigger>${item.question}<span aria-hidden="true">+</span></button></h3><div id="faq-answer-${index}" class="faq-answer" hidden><p>${item.answer}</p></div></article>`);
   }
   renderConversionCopy();
-
   function validPhone(value) { return String(value || "").replace(/\D/g, "").length >= 7; }
   async function submitLead(payload) {
     const endpoint = window.LEAD_CAPTURE_CONFIG?.endpoint;
@@ -119,6 +121,63 @@
   function setStatus(selector, message, valid) {
     const node = $(selector);
     if (node) { node.textContent = message; node.classList.toggle("is-success", Boolean(valid)); node.classList.toggle("is-error", !valid); }
+  }
+  const formState = {
+    demo: { started: false, submitting: false, lastKey: "" },
+    audit: { started: false, submitting: false, lastKey: "" }
+  };
+  function markField(field, errorNode, message) {
+    if (!field || !errorNode) return;
+    field.setAttribute("aria-invalid", message ? "true" : "false");
+    errorNode.textContent = message || "";
+  }
+  function clearFields(prefix) {
+    $$(`[data-${prefix}-form] [aria-invalid="true"]`).forEach(field => field.setAttribute("aria-invalid", "false"));
+    $$(`[data-${prefix}-form] .field-error`).forEach(node => { node.textContent = ""; });
+  }
+  function beginForm(journey, placement) {
+    if (!formState[journey].started) {
+      formState[journey].started = true;
+      emit("form_start", { journey, placement });
+    }
+  }
+  function validateDemo() {
+    const name = $("[data-demo-name]"), industry = $("[data-demo-industry]"), phone = $("[data-demo-phone]"), consent = $("[data-demo-consent]");
+    const fields = [
+      [name, $("[data-demo-name-error]"), name.value.trim() ? "" : "Enter your name."],
+      [industry, $("[data-demo-industry-error]"), industry.value ? "" : "Choose your industry."],
+      [phone, $("[data-demo-phone-error]"), phone.value.trim() ? (validPhone(phone.value) ? "" : phase3.demo.errors.phone) : "Enter your phone number."],
+      [consent, $("[data-demo-consent-error]"), consent.checked ? "" : "Consent is required before we can follow up."]
+    ];
+    const invalid = fields.filter(([, , message]) => message);
+    fields.forEach(([field, error, message]) => markField(field, error, message));
+    if (invalid.length) {
+      const [field] = invalid[0];
+      emit("validation_failure", { journey: "demo", placement: "demo-modal", field: field?.dataset ? Object.keys(field.dataset).find(key => key.startsWith("demo")) || "field" : "field" });
+      setStatus("[data-demo-status]", invalid[0][2], false);
+      field?.focus();
+      return false;
+    }
+    return true;
+  }
+  function validateAudit() {
+    const fields = [
+      [$("[data-audit-name]"), $("[data-audit-name-error]"), $("[data-audit-name]").value.trim() ? "" : "Enter your name."],
+      [$("[data-audit-company]"), $("[data-audit-company-error]"), $("[data-audit-company]").value.trim() ? "" : "Enter your company name."],
+      [$("[data-audit-phone]"), $("[data-audit-phone-error]"), $("[data-audit-phone]").value.trim() ? (validPhone($("[data-audit-phone]").value) ? "" : phase3.audit.errors.phone) : "Enter your WhatsApp number."],
+      [$("[data-audit-bottleneck]"), $("[data-audit-bottleneck-error]"), $("[data-audit-bottleneck]").value.trim() ? "" : "Describe the primary bottleneck."],
+      [$("[data-audit-consent]"), $("[data-audit-consent-error]"), $("[data-audit-consent]").checked ? "" : "Consent is required before we can follow up."]
+    ];
+    const invalid = fields.filter(([, , message]) => message);
+    fields.forEach(([field, error, message]) => markField(field, error, message));
+    if (invalid.length) {
+      const [field] = invalid[0];
+      emit("validation_failure", { journey: "audit", placement: "audit-form", field: field?.dataset ? Object.keys(field.dataset).find(key => key.startsWith("audit")) || "field" : "field" });
+      setStatus("[data-audit-status]", invalid[0][2], false);
+      field?.focus();
+      return false;
+    }
+    return true;
   }
   const demoDialog = $("[data-demo-dialog]");
   let lastDemoTrigger = null;
@@ -137,28 +196,42 @@
   }
   $$("[data-open-demo]").forEach(button => button.addEventListener("click", openDemo));
   $$("[data-secondary-action], [data-persistent-audit]").forEach(link => link.addEventListener("click", () => emit("cta_click", { journey: "audit", placement: link.hasAttribute("data-persistent-audit") ? "persistent" : "hero" })));
+  $$("[data-demo-form] input, [data-demo-form] select").forEach(field => field.addEventListener("focus", () => beginForm("demo", "demo-modal"), { once: true }));
+  $$("[data-audit-form] input, [data-audit-form] textarea").forEach(field => field.addEventListener("focus", () => beginForm("audit", "audit-form"), { once: true }));
   $("[data-close-demo]")?.addEventListener("click", closeDemo);
   demoDialog?.addEventListener("click", event => { if (event.target === demoDialog) closeDemo(); });
   document.addEventListener("keydown", event => { if (event.key === "Escape" && demoDialog?.open) closeDemo(); });
   $("[data-demo-form]")?.addEventListener("submit", event => {
     event.preventDefault();
+    beginForm("demo", "demo-modal");
+    clearFields("demo");
+    if (!validateDemo()) return;
     const name = $("[data-demo-name]"), industry = $("[data-demo-industry]"), phone = $("[data-demo-phone]"), consent = $("[data-demo-consent]");
-    if (!name.value.trim() || !industry.value || !phone.value.trim() || !consent.checked) { setStatus("[data-demo-status]", phase3.demo.errors.required, false); return; }
-    if (!validPhone(phone.value)) { setStatus("[data-demo-status]", phase3.demo.errors.phone, false); phone.focus(); return; }
+    const submitButton = $("[data-demo-submit]");
+    const stateKey = JSON.stringify([name.value.trim(), industry.value, phone.value.trim(), consent.checked]);
+    if (formState.demo.submitting || formState.demo.lastKey === stateKey) return;
+    formState.demo.submitting = true; formState.demo.lastKey = stateKey; submitButton.disabled = true;
     emit("form_submit_attempt", { journey: "demo", placement: "demo-modal" });
     submitLead({ enquiryType: "live-demo", name: name.value, industry: industry.value, phone: phone.value, consent: consent.checked, variant: variantContext.variant })
-      .then(sent => setStatus("[data-demo-status]", sent ? "Your demo request has been recorded. We will contact you shortly." : phase3.demo.success, true))
-      .catch(() => setStatus("[data-demo-status]", "We could not record your request. Please try again.", false));
+      .then(sent => { const outcome = sent ? "captured" : "simulated"; emit("form_outcome", { journey: "demo", placement: "demo-modal", outcome }); setStatus("[data-demo-status]", sent ? phase3.demo.captured : phase3.demo.success, true); })
+      .catch(() => { emit("form_outcome", { journey: "demo", placement: "demo-modal", outcome: "retry" }); formState.demo.lastKey = ""; setStatus("[data-demo-status]", phase3.demo.failure, false); })
+      .finally(() => { formState.demo.submitting = false; submitButton.disabled = false; });
   });
   $("[data-audit-form]")?.addEventListener("submit", event => {
     event.preventDefault();
+    beginForm("audit", "audit-form");
+    clearFields("audit");
+    if (!validateAudit()) return;
     const name = $("[data-audit-name]"), company = $("[data-audit-company]"), phone = $("[data-audit-phone]"), bottleneck = $("[data-audit-bottleneck]"), consent = $("[data-audit-consent]");
-    if (![name, company, phone, bottleneck].every(field => field?.value.trim()) || !consent.checked) { setStatus("[data-audit-status]", phase3.audit.errors.required, false); return; }
-    if (!validPhone(phone.value)) { setStatus("[data-audit-status]", phase3.audit.errors.phone, false); phone.focus(); return; }
+    const submitButton = $("[data-audit-submit]");
+    const stateKey = JSON.stringify([name.value.trim(), company.value.trim(), phone.value.trim(), bottleneck.value.trim(), consent.checked, state.currency, state.industry]);
+    if (formState.audit.submitting || formState.audit.lastKey === stateKey) return;
+    formState.audit.submitting = true; formState.audit.lastKey = stateKey; submitButton.disabled = true;
     emit("form_submit_attempt", { journey: "audit", placement: "audit-form" });
     submitLead({ enquiryType: "revenue-audit", name: name.value, company: company.value, whatsapp: phone.value, bottleneck: bottleneck.value, currency: state.currency, selectedIndustry: state.industry, consent: consent.checked, variant: variantContext.variant })
-      .then(sent => { setStatus("[data-audit-status]", sent ? "Your audit enquiry has been recorded. We will contact you shortly." : phase3.audit.success, true); event.currentTarget.reset(); })
-      .catch(() => setStatus("[data-audit-status]", "We could not record your enquiry. Please try again.", false));
+      .then(sent => { const outcome = sent ? "captured" : "simulated"; emit("form_outcome", { journey: "audit", placement: "audit-form", outcome }); setStatus("[data-audit-status]", sent ? phase3.audit.captured : phase3.audit.success, true); event.currentTarget.reset(); })
+      .catch(() => { emit("form_outcome", { journey: "audit", placement: "audit-form", outcome: "retry" }); formState.audit.lastKey = ""; setStatus("[data-audit-status]", phase3.audit.failure, false); })
+      .finally(() => { formState.audit.submitting = false; submitButton.disabled = false; });
   });
   $$("[data-faq-trigger]").forEach(button => button.addEventListener("click", () => {
     const answer = document.getElementById(button.getAttribute("aria-controls"));

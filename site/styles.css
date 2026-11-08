@@ -102,6 +102,9 @@ h3 { font-size: 1rem; letter-spacing: -.02em; }
 .privacy-note { color: var(--muted); font-size: .75rem; }
 .form-status { min-height: 1.5em; margin: 0; font-size: .82rem; font-weight: 700; }
 .form-status.is-success { color: var(--emerald); }.form-status.is-error { color: #a33b2c; }
+.field-error { display: block; min-height: 1.2em; color: #a33a2b; font-size: .82rem; }
+.conversion-form [aria-invalid="true"] { border-color: #a33a2b; outline-color: #a33a2b; }
+.conversion-form button[disabled] { cursor: wait; opacity: .65; }
 .demo-dialog { width: min(560px, calc(100% - 2rem)); max-height: min(720px, calc(100% - 2rem)); padding: 0; border: 0; background: transparent; }
 .demo-dialog::backdrop { background: rgba(23, 27, 26, .72); }
 .dialog-card { position: relative; padding: 2rem; color: var(--ink); background: var(--paper); border: 1px solid var(--line); box-shadow: 12px 12px 0 var(--emerald-light); }
