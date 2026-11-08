@@ -55,6 +55,8 @@ test("exposure and conversion seams are session-safe and privacy-safe", () => {
   assert.match(main, /variant: variantContext\.variant/);
   assert.doesNotMatch(main, /emit\([^)]*\b(name|phone|email|company|bottleneck)\b/);
   assert.doesNotMatch(main, /PHASE4_EVENT_SINK.*fetch|fetch.*PHASE4_EVENT_SINK/);
+  assert.doesNotMatch(main, /agenticeera-phase4-seed|navigator\.userAgent/);
+  assert.match(main, /phase4-variant/);
 });
 
 test("Phase 3 behavior remains local and browser-native", () => {

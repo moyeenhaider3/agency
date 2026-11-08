@@ -11,17 +11,18 @@
   const list = (selector, items, render) => { const node = $(selector); if (node) node.innerHTML = items.map(render).join(""); };
   const safeSession = () => { try { return window.sessionStorage; } catch { return null; } };
   const session = safeSession();
-  const seed = (() => {
-    try {
-      const key = "agenticeera-phase4-seed";
-      const existing = session?.getItem(key);
-      if (existing) return existing;
-      const value = `${location.pathname}|${navigator.userAgent || "browser"}`;
-      session?.setItem(key, value);
-      return value;
-    } catch { return "safe-control-seed"; }
-  })();
-  const assignment = phase4.resolveVariant(phase4.experiment, seed);
+  const variantKey = `agenticeera-phase4-variant:${phase4.experiment.key}`;
+  const storedVariant = session?.getItem(variantKey);
+  const allowedStoredVariant = storedVariant && (
+    storedVariant === phase4.experiment.controlId ||
+    Object.prototype.hasOwnProperty.call(phase4.experiment.variants || {}, storedVariant) ||
+    storedVariant === "control-no-test"
+  ) ? storedVariant : null;
+  const calculatedAssignment = phase4.resolveVariant(phase4.experiment, location.pathname || "home");
+  const assignment = allowedStoredVariant
+    ? { id: allowedStoredVariant, content: allowedStoredVariant === "control-no-test" ? phase4.control : phase4.experiment.variants[allowedStoredVariant], enabled: calculatedAssignment.enabled }
+    : calculatedAssignment;
+  try { session?.setItem(variantKey, assignment.id); } catch { /* control remains usable without storage */ }
   const activeVariant = assignment.content;
   const variantContext = { experiment: phase4.experiment.key, version: phase4.version, variant: assignment.id };
   const emit = (name, details = {}) => {
