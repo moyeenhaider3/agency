@@ -2,8 +2,8 @@ window.PHASE1_CONTENT = {
   brand: "AgenticeEra Solution",
   eyebrow: "New Delhi · India · Global",
   hero: {
-    title: "Recover the revenue, cash, and staff time hidden inside routine work.",
-    intro: "AgenticeEra Solution gives growing businesses an always-on operating partner for the work that slows growth down — while you keep the final say on important decisions.",
+    title: "Stop paying humans to do what super-intelligent AI can run 24/7.",
+    intro: "We install custom autonomous AI departments into traditional businesses — removing manual bottlenecks across real estate, healthcare, D2C, and B2B SaaS while you keep the final say on important decisions.",
     promise: "90% routine work handled automatically. 10% high-stakes control stays with you.",
     primaryAction: "See the operating model",
     secondaryAction: "Explore how it works"
