@@ -10,7 +10,7 @@
 
 ## Phases
 
-- [ ] **Phase 4: Hero Messaging & Experiment Foundation** - Make the first viewport outcome-led, scannable, and ready for controlled message variants.
+- [x] **Phase 4: Hero Messaging & Experiment Foundation** - Make the first viewport outcome-led, scannable, and ready for controlled message variants.
 - [ ] **Phase 5: Conversion UX & Privacy-Safe Measurement** - Reduce enquiry friction and instrument both journeys with a local-verifiable, no-op-safe event contract.
 - [ ] **Phase 6: Performance & Core Web Vitals** - Keep the conversion path fast, stable, and usable on constrained devices and networks.
 - [ ] **Phase 7: SEO & Social Discoverability** - Make the public page intentional for search crawlers and social previews without exposing internal artifacts.
@@ -27,7 +27,10 @@
   3. A canonical hero/CTA/proof variant and at least one approved alternative can be selected from versioned configuration through one documented switch, with no duplicated page structure.
   4. Variant assignment is deterministic and safely falls back to control; one session records at most one exposure and carries the same approved variant identifier into later conversion events.
   5. Disabling the experiment restores control content while preserving the same conversion behavior and an explicit control/no-test value.
-**Plans**: TBD
+**Plans**: 1/1 plans executed
+
+Plans:
+- [x] 04-01-PLAN.md — Deliver the qualified outcome-led hero and deterministic local experiment foundation
 **UI hint**: yes
 
 ### Phase 5: Conversion UX & Privacy-Safe Measurement
@@ -78,7 +81,7 @@ Production CRM, lead routing, voice calling, WhatsApp/messaging, calendar, custo
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 4. Hero Messaging & Experiment Foundation | 0/TBD | Not started | - |
+| 4. Hero Messaging & Experiment Foundation | 1/1 | Complete | 2026-11-08 |
 | 5. Conversion UX & Privacy-Safe Measurement | 0/TBD | Not started | - |
 | 6. Performance & Core Web Vitals | 0/TBD | Not started | - |
 | 7. SEO & Social Discoverability | 0/TBD | Not started | - |

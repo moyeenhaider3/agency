@@ -19,11 +19,11 @@ Improve the existing marketing frontend so the right visitor understands the pro
 
 ### Hero Messaging
 
-- [ ] **HERO-01:** The hero communicates, in its first viewport, (1) the business outcome, (2) who the service is for, and (3) the controlled 90/10 operating promise in plain executive language.
+- [x] **HERO-01:** The hero communicates, in its first viewport, (1) the business outcome, (2) who the service is for, and (3) the controlled 90/10 operating promise in plain executive language.
   - **Acceptance:** On a 375px-wide viewport and a 1440px-wide viewport, a reviewer can identify all three points without opening a modal, scrolling past the first viewport, or reading more than the hero heading, supporting copy, and proof block.
-- [ ] **HERO-02:** The hero presents one primary conversion action and one secondary revenue-audit action with copy that states the expected time or next step.
+- [x] **HERO-02:** The hero presents one primary conversion action and one secondary revenue-audit action with copy that states the expected time or next step.
   - **Acceptance:** The primary action opens the existing 20-second demo path; the secondary action reaches the audit form; both actions remain visible and keyboard-operable in the first viewport at both target widths.
-- [ ] **HERO-03:** Hero proof points and claims preserve their source, qualifier, and estimate/guarantee distinction while making the strongest reason to continue visually scannable.
+- [x] **HERO-03:** Hero proof points and claims preserve their source, qualifier, and estimate/guarantee distinction while making the strongest reason to continue visually scannable.
   - **Acceptance:** Every hero metric has an adjacent qualifier or traceable content source, and automated content checks find no unsupported new case-study, savings, or guarantee claim.
 
 ### CTA and Form UX
@@ -50,13 +50,13 @@ Improve the existing marketing frontend so the right visitor understands the pro
 
 ### A/B-Test-Ready Structure
 
-- [ ] **EXPERIMENT-01:** Hero message, primary CTA label, and supporting proof can be selected from a versioned variant configuration without duplicating page structure or changing the default experience accidentally.
+- [x] **EXPERIMENT-01:** Hero message, primary CTA label, and supporting proof can be selected from a versioned variant configuration without duplicating page structure or changing the default experience accidentally.
   - **Acceptance:** A reviewer can identify one canonical control variant and at least one alternative configuration in data/configuration, with a single documented switch determining the rendered variant.
-- [ ] **EXPERIMENT-02:** Variant assignment is deterministic for a visitor/session, defaults safely, and exposes the assigned variant to conversion analytics.
+- [x] **EXPERIMENT-02:** Variant assignment is deterministic for a visitor/session, defaults safely, and exposes the assigned variant to conversion analytics.
   - **Acceptance:** Reloading within the same supported session preserves the assigned variant; an unavailable, malformed, or unapproved variant resolves to control; no personal identifier is required for assignment.
-- [ ] **EXPERIMENT-03:** Experiment exposure and conversion events use stable experiment/variant identifiers and prevent a visitor from being counted as exposed repeatedly during ordinary page interaction.
+- [x] **EXPERIMENT-03:** Experiment exposure and conversion events use stable experiment/variant identifiers and prevent a visitor from being counted as exposed repeatedly during ordinary page interaction.
   - **Acceptance:** One page session produces at most one exposure event per experiment, and subsequent CTA/form events carry the same approved variant identifier.
-- [ ] **EXPERIMENT-04:** Experiment structure supports disabling a test and returning to the control copy without a code-path fork in the form or analytics behavior.
+- [x] **EXPERIMENT-04:** Experiment structure supports disabling a test and returning to the control copy without a code-path fork in the form or analytics behavior.
   - **Acceptance:** Turning the experiment off renders control content and continues emitting the same funnel event schema with an explicit control/no-test value.
 
 ### Performance and Core Web Vitals
@@ -95,9 +95,9 @@ The following are intentionally not v1.1 deliverables:
 
 | Requirement | Phase | Status |
 |---|---|---|
-| HERO-01 | Phase 4 | Pending |
-| HERO-02 | Phase 4 | Pending |
-| HERO-03 | Phase 4 | Pending |
+| HERO-01 | Phase 4 | Complete |
+| HERO-02 | Phase 4 | Complete |
+| HERO-03 | Phase 4 | Complete |
 | FORM-01 | Phase 5 | Pending |
 | FORM-02 | Phase 5 | Pending |
 | FORM-03 | Phase 5 | Pending |
@@ -106,10 +106,10 @@ The following are intentionally not v1.1 deliverables:
 | ANALYTICS-02 | Phase 5 | Pending |
 | ANALYTICS-03 | Phase 5 | Pending |
 | ANALYTICS-04 | Phase 5 | Pending |
-| EXPERIMENT-01 | Phase 4 | Pending |
-| EXPERIMENT-02 | Phase 4 | Pending |
-| EXPERIMENT-03 | Phase 4 | Pending |
-| EXPERIMENT-04 | Phase 4 | Pending |
+| EXPERIMENT-01 | Phase 4 | Complete |
+| EXPERIMENT-02 | Phase 4 | Complete |
+| EXPERIMENT-03 | Phase 4 | Complete |
+| EXPERIMENT-04 | Phase 4 | Complete |
 | PERF-01 | Phase 6 | Pending |
 | PERF-02 | Phase 6 | Pending |
 | PERF-03 | Phase 6 | Pending |
