@@ -33,8 +33,18 @@ try {
     await page.locator("[data-open-demo][data-primary-action]").click();
     await page.locator("[data-demo-form]").evaluate(form => form.requestSubmit());
     if (!await page.locator("[data-demo-status]").textContent()) throw new Error("demo validation feedback missing");
+    await page.locator("[data-demo-name]").fill("Browser proof");
+    await page.locator("[data-demo-phone]").fill("9876543210");
+    await page.locator("[data-demo-consent]").check();
+    await page.locator("[data-demo-form]").evaluate(form => form.requestSubmit());
     await page.locator("[data-close-demo]").click();
     await page.locator("[data-secondary-action]").click();
+    await page.locator("[data-audit-name]").fill("Browser proof");
+    await page.locator("[data-audit-company]").fill("Local test company");
+    await page.locator("[data-audit-phone]").fill("9876543210");
+    await page.locator("[data-audit-bottleneck]").fill("Follow-up delay");
+    await page.locator("[data-audit-consent]").check();
+    await page.locator("[data-audit-form]").evaluate(form => form.requestSubmit());
     await page.locator("[data-faq-trigger]").first().click();
     await page.locator("[data-roi-input]").fill("10000");
     await page.locator("[data-currency=\"USD\"]").click();
@@ -42,6 +52,8 @@ try {
     const finalEvents = await page.evaluate(() => window.__PHASE4_EVENTS);
     const ctas = finalEvents.filter(event => event.name === "cta_click");
     if (!ctas.some(event => event.journey === "demo") || !ctas.some(event => event.journey === "audit")) throw new Error("both CTA seams missing");
+    const submits = finalEvents.filter(event => event.name === "form_submit_attempt");
+    if (!submits.some(event => event.journey === "demo") || !submits.some(event => event.journey === "audit")) throw new Error("both form seams missing");
     if (new Set(finalEvents.map(event => event.variant)).size !== 1) throw new Error("variant identity changed");
     await page.close();
   }
