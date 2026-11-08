@@ -12,7 +12,7 @@
 
 - [x] **Phase 4: Hero Messaging & Experiment Foundation** - Make the first viewport outcome-led, scannable, and ready for controlled message variants.
 - [x] **Phase 5: Conversion UX & Privacy-Safe Measurement** - Reduce enquiry friction and instrument both journeys with a local-verifiable, no-op-safe event contract.
-- [ ] **Phase 6: Performance & Core Web Vitals** - Keep the conversion path fast, stable, and usable on constrained devices and networks.
+- [x] **Phase 6: Performance & Core Web Vitals** - Keep the conversion path fast, stable, and usable on constrained devices and networks.
 - [ ] **Phase 7: SEO & Social Discoverability** - Make the public page intentional for search crawlers and social previews without exposing internal artifacts.
 
 ## Phase Details
@@ -56,8 +56,8 @@ Plans:
   1. A documented production-like HTTPS run meets LCP ≤ 2.5s, INP ≤ 200ms, CLS ≤ 0.1, and ≤ 500KB transferred before interaction on both mobile and desktop profiles.
   2. With JavaScript disabled or delayed, visitors still see readable hero outcome copy, both conversion destinations, title/description metadata, and no blank content shell.
   3. Reduced-motion visitors and constrained mobile users can use primary actions without nonessential animation, horizontal overflow, blocked controls, or interaction delay over 200ms.
-**Plans**: 1/1 plans created
-- [ ] 06-01-PLAN.md — Make the critical path HTML-first and prove performance/responsive gates
+**Plans**: 1/1 plans executed
+- [x] 06-01-PLAN.md — Make the critical path HTML-first and prove performance/responsive gates
 
 ### Phase 7: SEO & Social Discoverability
 **Goal**: Search engines and social platforms receive accurate, intentional public-page signals while internal planning, test, and configuration artifacts remain undiscoverable.
@@ -85,7 +85,7 @@ Production CRM, lead routing, voice calling, WhatsApp/messaging, calendar, custo
 |-------|----------------|--------|-----------|
 | 4. Hero Messaging & Experiment Foundation | 1/1 | Complete | 2026-11-08 |
 | 5. Conversion UX & Privacy-Safe Measurement | 1/1 | Complete | 2026-11-08 |
-| 6. Performance & Core Web Vitals | 0/1 | Planned | - |
+| 6. Performance & Core Web Vitals | 1/1 | Complete | 2026-11-08 |
 | 7. SEO & Social Discoverability | 0/TBD | Not started | - |
 
 ## Project History

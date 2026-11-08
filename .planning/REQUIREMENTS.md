@@ -110,9 +110,9 @@ The following are intentionally not v1.1 deliverables:
 | EXPERIMENT-02 | Phase 4 | Complete |
 | EXPERIMENT-03 | Phase 4 | Complete |
 | EXPERIMENT-04 | Phase 4 | Complete |
-| PERF-01 | Phase 6 | Pending |
-| PERF-02 | Phase 6 | Pending |
-| PERF-03 | Phase 6 | Pending |
+| PERF-01 | Phase 6 | Complete |
+| PERF-02 | Phase 6 | Complete |
+| PERF-03 | Phase 6 | Complete |
 | SEO-01 | Phase 7 | Pending |
 | SEO-02 | Phase 7 | Pending |
 | SEO-03 | Phase 7 | Pending |
