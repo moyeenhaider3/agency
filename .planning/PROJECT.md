@@ -25,11 +25,11 @@ Show business owners exactly how much revenue, cash, and staff time they can rec
 
 ### Active
 
-No active v1 requirements. Start the next cycle with `$gsd-new-milestone`.
+- v1.1 Conversion Optimization: sharpen hero messaging, reduce CTA/form friction, add privacy-safe conversion analytics and A/B-test-ready structure, meet Core Web Vitals budgets, and make SEO/social sharing intentional without expanding into a production operations platform.
 
 ### Out of Scope
 
-- Real voice calling, WhatsApp, CRM, accounting, calendar, Shopify, or analytics integrations — deferred until the marketing frontend is validated.
+- Real voice calling, WhatsApp, CRM, accounting, calendar, Shopify, customer portal, or production analytics integrations — deferred beyond v1.1; v1.1 may define a privacy-safe analytics contract and adapter-ready no-op instrumentation only.
 - Authenticated dashboards or customer portals — not required to convert initial website visitors.
 - Actual financial, healthcare, tax, or legal advice — the site communicates illustrative business cases and requires customer validation.
 - Inventing additional case studies, guarantees, or performance claims beyond the supplied brief — trust depends on using the provided evidence and labeling estimates appropriately.
@@ -57,9 +57,13 @@ No active v1 requirements. Start the next cycle with `$gsd-new-milestone`.
 
 v1.0 shipped on 2026-11-08. The public marketing frontend is complete; production calling, lead delivery, integrations, dashboards, and authenticated operations remain deferred to a future milestone.
 
+## Current Milestone Goals
+
+v1.1 Conversion Optimization improves the shipped marketing frontend's message clarity, enquiry UX, measurement, experiment readiness, performance, and public discoverability. It does not create production CRM, voice, WhatsApp, calendar, or customer-portal workflows.
+
 ## Next Milestone Goals
 
-Define the next validated customer-facing or production-integration slice through `$gsd-new-milestone`.
+Define the next validated customer-facing or production-integration slice after v1.1 through `$gsd-new-milestone`.
 
 ## Key Decisions
 
@@ -68,7 +72,7 @@ Define the next validated customer-facing or production-integration slice throug
 | Use AgenticeEra Solution as the displayed brand | User supplied this brand name after reviewing the brief | — Pending |
 | Start with a marketing frontend | Validates positioning and conversion before building operational integrations | — Pending |
 | Use a coarse, parallel, YOLO workflow with plan checks and verification | Keeps the first milestone focused while retaining quality gates | — Pending |
-| Keep research disabled for initialization | The supplied brief and roadmap provide sufficient direction for this website milestone | — Pending |
+| Keep v1.1 focused on conversion evidence rather than production operations | The v1.0 site is shipped, while production integrations remain explicitly deferred | — Pending |
 
 ## Evolution
 
