@@ -44,7 +44,8 @@ Plans:
   4. Submission messaging explains the human follow-up or retry path and does not imply that calling, WhatsApp, calendar, CRM, or portal workflows were created.
   5. Both journeys emit a documented event sequence for view, CTA, start, validation failure, submit attempt, and outcome; records distinguish journey and approved non-personal context while excluding contact fields.
   6. With analytics configuration absent or blocked, the site remains fully usable with no tracking error; a local sink or test can verify event names, fields, and ordering without external transmission.
-**Plans**: TBD
+**Plans**: 1/1 plans created
+- [ ] 05-01-PLAN.md — Complete both enquiry journeys and verify the privacy-safe local funnel contract
 **UI hint**: yes
 
 ### Phase 6: Performance & Core Web Vitals
