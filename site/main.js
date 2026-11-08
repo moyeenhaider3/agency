@@ -29,7 +29,10 @@
   }
   function renderPlaybook() {
     const item = getIndustry();
-    const proof = item.proof.map(entry => `<div class="proof-stat"><strong>${entry.value}</strong><span>${entry.label}</span><small>${entry.source}</small></div>`).join("");
+    const proof = item.proof.map(entry => {
+      const sourceCurrency = entry.value.includes("₹") && entry.value.includes("$") ? "Source currencies: INR and USD" : entry.value.includes("₹") ? "Source currency: INR" : entry.value.includes("$") ? "Source currency: USD" : "Source currency: not applicable";
+      return `<div class="proof-stat"><strong>${entry.value}</strong><span>${entry.label}</span><small>${entry.source} · ${sourceCurrency}</small></div>`;
+    }).join("");
     $("[data-industry-playbook]").innerHTML = `<article id="panel-${item.id}" role="tabpanel" aria-labelledby="tab-${item.id}" class="playbook-panel"><div class="playbook-copy"><p class="eyebrow">${item.shortName}</p><h3>${item.problem}</h3><p><strong>Day one:</strong> ${item.change}</p><p class="assumption-note">${item.assumption}</p></div><div class="proof-stats">${proof}</div></article>`;
   }
   function renderCurrency() {
