@@ -56,7 +56,8 @@ Plans:
   1. A documented production-like HTTPS run meets LCP ≤ 2.5s, INP ≤ 200ms, CLS ≤ 0.1, and ≤ 500KB transferred before interaction on both mobile and desktop profiles.
   2. With JavaScript disabled or delayed, visitors still see readable hero outcome copy, both conversion destinations, title/description metadata, and no blank content shell.
   3. Reduced-motion visitors and constrained mobile users can use primary actions without nonessential animation, horizontal overflow, blocked controls, or interaction delay over 200ms.
-**Plans**: TBD
+**Plans**: 1/1 plans created
+- [ ] 06-01-PLAN.md — Make the critical path HTML-first and prove performance/responsive gates
 
 ### Phase 7: SEO & Social Discoverability
 **Goal**: Search engines and social platforms receive accurate, intentional public-page signals while internal planning, test, and configuration artifacts remain undiscoverable.
@@ -84,7 +85,7 @@ Production CRM, lead routing, voice calling, WhatsApp/messaging, calendar, custo
 |-------|----------------|--------|-----------|
 | 4. Hero Messaging & Experiment Foundation | 1/1 | Complete | 2026-11-08 |
 | 5. Conversion UX & Privacy-Safe Measurement | 1/1 | Complete | 2026-11-08 |
-| 6. Performance & Core Web Vitals | 0/TBD | Not started | - |
+| 6. Performance & Core Web Vitals | 0/1 | Planned | - |
 | 7. SEO & Social Discoverability | 0/TBD | Not started | - |
 
 ## Project History
